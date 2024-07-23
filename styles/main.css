@@ -23,7 +23,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ff5656;
     text-decoration: none;
 }
 
@@ -33,7 +33,7 @@ main {
 
 footer {
     background: #333;
-    color: #fff;
+    color: #ff5656;
     text-align: center;
     padding: 1rem;
     position: fixed;
