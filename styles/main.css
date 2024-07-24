@@ -1,42 +1,94 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #c0c0c0;
+    background-image: url('../images/background.jpg'); /* Add your background image URL here */
+    background-size: cover; /* Cover the entire area */
+    background-attachment: scroll; /* Make the background scrollable */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background: #333;
-    color: #ff5656;
-    padding: 1rem;
+    background-color: #3d643a;
+    color: white;
+    padding: 10px;
     text-align: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 1rem;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #ff5656;
+    color: white;
     text-decoration: none;
 }
 
 main {
-    padding: 1rem;
+    flex-grow: 1;
+}
+
+.window {
+    margin: 20px auto;
+    width: 60%; /* Adjusted width for narrower windows */
+    border: 2px solid #3d643a;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    background-color: white;
+}
+
+.window-header {
+    background-color: #3d643a;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.window-controls button {
+    background-color: #808080;
+    border: none;
+    color: white;
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    cursor: pointer;
+}
+
+.window-controls button:hover {
+    background-color: #a0a0a0;
+}
+
+.window-content {
+    padding: 20px;
+    text-align: center; /* Center the text inside window content */
 }
 
 footer {
-    background: #333;
-    color: #ff5656;
     text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    padding: 10px;
+    background-color: #3d643a;
+    color: white;
 }
