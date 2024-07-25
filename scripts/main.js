@@ -24,7 +24,9 @@ function closeProject(projectId) {
 
 function dragElement(element) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let isDragging = false;
     const header = element.querySelector(".window-header");
+
     if (header) {
         header.onmousedown = dragMouseDown;
         header.ontouchstart = dragTouchStart;
@@ -33,6 +35,7 @@ function dragElement(element) {
     function dragMouseDown(e) {
         e = e || window.event;
         e.preventDefault();
+        isDragging = true;
         pos3 = e.clientX;
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
@@ -42,6 +45,7 @@ function dragElement(element) {
     function dragTouchStart(e) {
         e = e || window.event;
         e.preventDefault();
+        isDragging = true;
         const touch = e.touches[0];
         pos3 = touch.clientX;
         pos4 = touch.clientY;
@@ -50,6 +54,7 @@ function dragElement(element) {
     }
 
     function elementDrag(e) {
+        if (!isDragging) return;
         e = e || window.event;
         e.preventDefault();
         pos1 = pos3 - e.clientX;
@@ -61,6 +66,7 @@ function dragElement(element) {
     }
 
     function elementDragTouch(e) {
+        if (!isDragging) return;
         e = e || window.event;
         e.preventDefault();
         const touch = e.touches[0];
@@ -73,6 +79,7 @@ function dragElement(element) {
     }
 
     function closeDragElement() {
+        isDragging = false;
         document.onmouseup = null;
         document.onmousemove = null;
         document.ontouchend = null;
