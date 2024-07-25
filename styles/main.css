@@ -8,6 +8,7 @@ html, body {
     background-size: cover; /* Cover the entire area */
     background-attachment: scroll; /* Make the background scrollable */
     background-repeat: no-repeat; /* Prevent the background from repeating */
+    background-position: center; /* Center the background image */
 }
 
 body {
@@ -46,13 +47,31 @@ nav ul li a {
     text-decoration: none;
 }
 
-main {
+main.content {
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.bio-skills {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.projects-contact {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 20px;
 }
 
 .window {
-    margin: 20px auto;
-    width: 60%; /* Adjusted width for narrower windows */
+    margin: 20px 0;
     border: 2px solid #000080;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
     background-color: white;
@@ -66,6 +85,7 @@ main {
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
+    cursor: move;
 }
 
 .window-controls button {
@@ -84,32 +104,60 @@ main {
 
 .window-content {
     padding: 20px;
-    text-align: center; /* Center the text inside window content */
+    text-align: center;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove box-shadow */
+    background-color: transparent; /* Make background transparent */
+}
+
+.skill-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill {
+    margin: 20px 0;
+    cursor: pointer;
+    position: relative;
+}
+
+.skill-description-window {
+    position: absolute;
+    left: 100%; /* Position to the right of the icon */
+    top: 0;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #000080;
+    background-color: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    z-index: 10;
 }
 
 .project-list {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .project {
     cursor: pointer;
     border: 1px solid #000080;
     padding: 10px;
-    margin: 10px 0;
-    width: 150px;
     text-align: center;
     background-color: #f0f0f0;
 }
 
 .project:hover {
     background-color: #e0e0e0;
-}
-
-.project h3 {
-    margin: 0;
 }
 
 .project-detail-window {
@@ -121,8 +169,6 @@ main {
     z-index: 1000;
     border: 2px solid #000080;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    left: 0; /* Ensure these properties are present */
-    top: 0; /* Ensure these properties are present */
 }
 
 .project-detail-window .window-header {
@@ -139,6 +185,77 @@ main {
     text-align: left;
 }
 
+/* Contact Section Styles */
+.contact-section {
+    align-self: flex-end;
+    grid-column: 3 / 4; /* Ensure it's in the right column */
+    grid-row: 3 / 4; /* Position it in the correct row */
+    margin-top: 100px; /* Space from the top */
+    padding: 20px; /* Padding for inner content */
+    background-color: white; /* Background color */
+    border: 2px solid #000080;
+    box-shadow: none; /* Remove box shadow */
+}
+
+/* Contact Window Styles */
+.contact-window {
+    background-color: white; /* Background color of the contact window */
+    border: 2px solid #000080; /* Border color and width */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the window */
+    padding: 20px; /* Padding inside the contact window */
+    width: 300px; /* Width of the contact window */
+    max-width: 100%; /* Responsive width */
+    box-sizing: border-box; /* Includes border and padding in the element’s total width and height */
+}
+
+/* Contact Header Styles */
+.contact-header {
+    background-color: #000080; /* Header background */
+    color: white; /* Header text color */
+    padding: 10px; /* Padding inside the header */
+    border-bottom: 1px solid #000080; /* Header bottom border */
+    font-size: 16px; /* Adjust font size if needed */
+    margin-bottom: 10px; /* Space below header */
+}
+
+/* Contact Content Styles */
+.contact-content {
+    padding: 20px; /* Padding for content */
+    text-align: left; /* Align text to the left */
+}
+
+/* Contact Form Styles */
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section label {
+    margin-bottom: 5px;
+}
+
+.contact-section input[type="text"],
+.contact-section input[type="email"],
+.contact-section textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-section input[type="submit"] {
+    padding: 10px;
+    border: none;
+    background-color: #000080;
+    color: white;
+    cursor: pointer;
+}
+
+.contact-section input[type="submit"]:hover {
+    background-color: #333;
+}
+
 footer {
     text-align: center;
     padding: 10px;
@@ -146,50 +263,52 @@ footer {
     color: white;
 }
 
-/* Media Queries for Responsiveness */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    .window {
-        width: 80%; /* Increase window width on smaller screens */
-    }
-
-    .window-header, .window-content, footer {
-        padding: 10px;
-    }
-
-    nav ul li {
-        margin: 0 10px;
-    }
-
-    .project {
-        width: 120px;
-    }
-}
-
-@media (max-width: 480px) {
-    .window {
-        width: 90%; /* Increase window width on smaller screens */
-    }
-
-    .window-header, .window-content, footer {
-        padding: 5px;
-    }
-
-    nav ul {
+    /* Stack sections vertically */
+    .bio-skills, .projects-contact {
         flex-direction: column;
-        align-items: center;
+        gap: 20px; /* Space between sections */
     }
 
-    nav ul li {
-        margin: 5px 0;
+    /* Display skill icons horizontally */
+    .skill-icons {
+        flex-direction: row;
+        flex-wrap: wrap; /* Allow wrapping if there are many icons */
+        justify-content: center; /* Center align icons */
+    }
+
+    .skill {
+        margin: 10px; /* Space between skill icons */
+    }
+
+    /* Position projects and contact sections */
+    .projects-contact {
+        flex-direction: column;
+    }
+
+    .contact-section {
+        align-self: stretch; /* Stretch to fit the container */
+        margin-top: 20px; /* Reduce top margin for mobile */
+    }
+
+    .project-list {
+        display: block; /* Stack projects vertically */
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
     }
 
     .project {
-        width: 100px;
+        margin-bottom: 10px; /* Space between project items */
+        width: auto; /* Allow width to be determined by content */
     }
 
     .project-detail-window {
-        width: 80%;
-        right: 10%;
-        top: 10%;
+        position: static; /* Use static positioning */
+        width: 100%; /* Full width of container */
+        height: auto; /* Adjust height to content */
+        box-shadow: none; /* Remove shadow for mobile */
+        border: none; /* Remove border for mobile */
     }
 }
+

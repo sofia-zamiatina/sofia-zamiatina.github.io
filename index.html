@@ -19,90 +19,80 @@
                 </ul>
             </nav>
         </header>
-        <main>
-            <section id="home" class="window">
-                <div class="window-header">
-                    <span>Home</span>
-                    <span class="window-controls">
-                        <button>-</button>
-                        <button>☐</button>
-                        <button>X</button>
-                    </span>
-                </div>
-                <div class="window-content">
-                    <h1>Welcome to My Portfolio</h1>
-                </div>
-            </section>
-            <section id="about" class="window">
-                <div class="window-header">
-                    <span>About Me</span>
-                    <span class="window-controls">
-                        <button>-</button>
-                        <button>☐</button>
-                        <button>X</button>
-                    </span>
-                </div>
-                <div class="window-content">
-                    <h2>About Me</h2>
-                    <p>My name is Sofia and I write code!</p>
-                </div>
-            </section>
-            <section id="skills" class="window">
-                <div class="window-header">
-                    <span>Skills</span>
-                    <span class="window-controls">
-                        <button>-</button>
-                        <button>☐</button>
-                        <button>X</button>
-                    </span>
-                </div>
-                <div class="window-content">
-                    <h2>Skills</h2>
-                    <!-- List your skills here -->
-                </div>
-            </section>
-            <section id="projects" class="window">
-                <div class="window-header">
-                    <span>Projects</span>
-                    <span class="window-controls">
-                        <button>-</button>
-                        <button>☐</button>
-                        <button>X</button>
-                    </span>
-                </div>
-                <div class="window-content">
-                    <h2>Project Showcase</h2>
-                    <div class="project-list">
-                        <div class="project" onclick="openProject('project1')">
-                            <h3>Project 1</h3>
-                        </div>
-                        <div class="project" onclick="openProject('project2')">
-                            <h3>Project 2</h3>
-                        </div>
-                        <!-- Add more projects as needed -->
+        <main class="content">
+            <div class="bio-skills">
+                <section id="about" class="window bio">
+                    <div class="window-header">
+                        <span>About Me</span>
+                        <span class="window-controls">
+                            <button>-</button>
+                            <button>☐</button>
+                            <button>X</button>
+                        </span>
                     </div>
-                </div>
-            </section>
-            <section id="contact" class="window">
-                <div class="window-header">
-                    <span>Contact</span>
-                    <span class="window-controls">
-                        <button>-</button>
-                        <button>☐</button>
-                        <button>X</button>
-                    </span>
-                </div>
-                <div class="window-content">
-                    <h2>Contact</h2>
-                    <form>
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-            </section>
+                    <div class="window-content">
+                        <h2>About Me</h2>
+                        <p>My name is Sofia and I write code!</p>
+                        <p>Location: XYZ</p>
+                        <p>Occupation: Software Developer</p>
+                        <p>Education: ABC University</p>
+                    </div>
+                </section>
+                <section id="skills" class="skills">
+                    <div class="skill-icons">
+                        <div class="skill" data-description="HTML5: Markup language for creating web pages.">
+                            <img src="path/to/html5-icon.png" alt="HTML5">
+                        </div>
+                        <div class="skill" data-description="CSS3: Style sheet language used for describing the presentation of a document.">
+                            <img src="path/to/css3-icon.png" alt="CSS3">
+                        </div>
+                        <!-- Add more skill icons as needed -->
+                    </div>
+                </section>                
+            </div>
+            <div class="projects-contact">
+                <section id="projects" class="window projects">
+                    <div class="window-header">
+                        <span>Projects</span>
+                        <span class="window-controls">
+                            <button>-</button>
+                            <button>☐</button>
+                            <button>X</button>
+                        </span>
+                    </div>
+                    <div class="window-content">
+                        <h2>Project Showcase</h2>
+                        <div class="project-list">
+                            <div class="project" onclick="openProject('project1')">
+                                <h3>Project 1</h3>
+                            </div>
+                            <div class="project" onclick="openProject('project2')">
+                                <h3>Project 2</h3>
+                            </div>
+                            <!-- Add more projects as needed -->
+                        </div>
+                    </div>
+                </section>
+                <section id="contact" class="contact-section"> 
+                    <div class="conact-window">
+                    <div class="contact-header"> 
+                        <span>Contact</span> 
+                    </div> 
+                    <divclass="contact-content"> 
+                        <h2>Contact</h2> 
+                        <form> 
+                            <label for="name">Name:</label> 
+                            <input type="text" id="name"name="name"> 
+                            <label for="email">Email:</label> 
+                            <input type="email" id="email" name="email"> 
+                            <labelfor="message">Message:</label> 
+                            <textarea id="message" name="message"></textarea> 
+                            <input type="submit"value="Submit"> 
+                        </form> 
+                    </div> 
+                    </div>
+                </section>
+            </div>
         </main>
         <footer>
             <p>&copy; 2024 Sofia Zamiatina. All rights reserved.</p>

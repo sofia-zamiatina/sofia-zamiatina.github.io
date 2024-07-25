@@ -6,7 +6,7 @@ function openProject(projectId) {
     const projectWindowHeight = projectWindow.clientHeight;
 
     const maxX = windowWidth - projectWindowWidth;
-    const maxY = windowHeight - projectWindowHeight;
+    const maxY = windowHeight - projectWindowHeight - 100;
 
     const randomX = Math.max(0, Math.floor(Math.random() * maxX));
     const randomY = Math.max(0, Math.floor(Math.random() * maxY));
@@ -96,3 +96,42 @@ document.querySelectorAll('.window-controls button').forEach(button => {
         e.stopPropagation(); // Prevent touch event from propagating to the drag handlers
     });
 });
+
+// Handle skill hover for detailed descriptions
+const skills = document.querySelectorAll('.skill');
+
+skills.forEach(skill => {
+    skill.addEventListener('mouseenter', () => {
+        showSkillDescription(skill);
+    });
+    skill.addEventListener('mouseleave', () => {
+        hideSkillDescription(skill);
+    });
+    skill.addEventListener('touchstart', () => {
+        showSkillDescription(skill);
+    });
+    skill.addEventListener('touchend', () => {
+        hideSkillDescription(skill);
+    });
+});
+
+function showSkillDescription(skill) {
+    const description = skill.getAttribute('data-description');
+    let descriptionWindow = skill.querySelector('.skill-description-window');
+    
+    if (!descriptionWindow) {
+        descriptionWindow = document.createElement('div');
+        descriptionWindow.classList.add('skill-description-window');
+        skill.appendChild(descriptionWindow);
+    }
+
+    descriptionWindow.textContent = description;
+    descriptionWindow.style.display = 'block';
+}
+
+function hideSkillDescription(skill) {
+    const descriptionWindow = skill.querySelector('.skill-description-window');
+    if (descriptionWindow) {
+        descriptionWindow.style.display = 'none';
+    }
+}
