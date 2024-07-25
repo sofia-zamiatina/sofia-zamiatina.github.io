@@ -86,3 +86,13 @@ function dragElement(element) {
         document.ontouchmove = null;
     }
 }
+
+// Ensure the close button does not interfere with touch events
+document.querySelectorAll('.window-controls button').forEach(button => {
+    button.addEventListener('touchstart', function(e) {
+        e.stopPropagation(); // Prevent touch event from propagating to the drag handlers
+    });
+    button.addEventListener('touchend', function(e) {
+        e.stopPropagation(); // Prevent touch event from propagating to the drag handlers
+    });
+});
