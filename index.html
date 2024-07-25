@@ -44,7 +44,7 @@
                 </div>
                 <div class="window-content">
                     <h2>About Me</h2>
-                    <p>Your bio here.</p>
+                    <p>My name is Sofia and I write code!</p>
                 </div>
             </section>
             <section id="projects" class="window">
@@ -57,8 +57,16 @@
                     </span>
                 </div>
                 <div class="window-content">
-                    <h2>Skills</h2>
-                    <!-- List your projects here -->
+                    <h2>Project Showcase</h2>
+                    <div class="project-list">
+                        <div class="project" onclick="openProject('project1')">
+                            <h3>Project 1</h3>
+                        </div>
+                        <div class="project" onclick="openProject('project2')">
+                            <h3>Project 2</h3>
+                        </div>
+                        <!-- Add more projects as needed -->
+                    </div>
                 </div>
             </section>
             <section id="skills" class="window">
@@ -71,7 +79,7 @@
                     </span>
                 </div>
                 <div class="window-content">
-                    <h2>Projects</h2>
+                    <h2>Skills</h2>
                     <!-- List your skills here -->
                 </div>
             </section>
@@ -97,9 +105,44 @@
             </section>
         </main>
         <footer>
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>&copy; 2024 Sofia Zamiatina. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- Project Detail Windows -->
+    <div id="project1" class="project-detail-window">
+        <div class="window-header">
+            <span>Project 1</span>
+            <span class="window-controls">
+                <button onclick="closeProject('project1')">X</button>
+            </span>
+        </div>
+        <div class="window-content">
+            <h2>Project 1</h2>
+            <p>Description: This is a detailed description of Project 1.</p>
+            <p>Technologies: HTML, CSS, JavaScript</p>
+            <p><a href="https://github.com/yourusername/project1" target="_blank">GitHub Repository</a></p>
+            <p><a href="https://live-demo-link.com" target="_blank">Live Demo</a></p>
+            <img src="path/to/screenshot1.jpg" alt="Project 1 Screenshot">
+        </div>
+    </div>
+    <div id="project2" class="project-detail-window">
+        <div class="window-header">
+            <span>Project 2</span>
+            <span class="window-controls">
+                <button onclick="closeProject('project2')">X</button>
+            </span>
+        </div>
+        <div class="window-content">
+            <h2>Project 2</h2>
+            <p>Description: This is a detailed description of Project 2.</p>
+            <p>Technologies: HTML, CSS, React</p>
+            <p><a href="https://github.com/yourusername/project2" target="_blank">GitHub Repository</a></p>
+            <p><a href="https://live-demo-link.com" target="_blank">Live Demo</a></p>
+            <img src="path/to/screenshot2.jpg" alt="Project 2 Screenshot">
+        </div>
+    </div>
+
     <script src="scripts/main.js"></script>
 </body>
 </html>

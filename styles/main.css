@@ -4,7 +4,7 @@ html, body {
     padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #c0c0c0;
-    background-image: url('../images/background.jpg'); /* Add your background image URL here */
+    background-image: url('../images/background.png'); /* Add your background image URL here */
     background-size: cover; /* Cover the entire area */
     background-attachment: scroll; /* Make the background scrollable */
     background-repeat: no-repeat; /* Prevent the background from repeating */
@@ -22,7 +22,7 @@ body {
 }
 
 header {
-    background-color: #3d643a;
+    background-color: #162037;
     color: white;
     padding: 10px;
     text-align: center;
@@ -34,6 +34,7 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -52,13 +53,13 @@ main {
 .window {
     margin: 20px auto;
     width: 60%; /* Adjusted width for narrower windows */
-    border: 2px solid #3d643a;
+    border: 2px solid #162037;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
     background-color: white;
 }
 
 .window-header {
-    background-color: #3d643a;
+    background-color: #162037;
     color: white;
     padding: 5px;
     display: flex;
@@ -86,9 +87,82 @@ main {
     text-align: center; /* Center the text inside window content */
 }
 
+.project-detail-window {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 60%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-detail-window .window-header {
+    background-color: #000080;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-detail-window .window-content {
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 5px;
+}
+
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #3d643a;
+    background-color: #000080;
     color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .window {
+        width: 80%; /* Increase window width on smaller screens */
+    }
+
+    .window-header, .window-content, footer {
+        padding: 10px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .project {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .window {
+        width: 90%; /* Increase window width on smaller screens */
+    }
+
+    .window-header, .window-content, footer {
+        padding: 5px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .project {
+        width: 100px;
+    }
 }
