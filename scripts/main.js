@@ -18,7 +18,6 @@ function openProject(projectId) {
     dragElement(projectWindow);
 }
 
-
 function closeProject(projectId) {
     document.getElementById(projectId).style.display = "none";
 }
@@ -28,6 +27,7 @@ function dragElement(element) {
     const header = element.querySelector(".window-header");
     if (header) {
         header.onmousedown = dragMouseDown;
+        header.ontouchstart = dragTouchStart;
     }
 
     function dragMouseDown(e) {
@@ -37,6 +37,16 @@ function dragElement(element) {
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
         document.onmousemove = elementDrag;
+    }
+
+    function dragTouchStart(e) {
+        e = e || window.event;
+        e.preventDefault();
+        const touch = e.touches[0];
+        pos3 = touch.clientX;
+        pos4 = touch.clientY;
+        document.ontouchend = closeDragElement;
+        document.ontouchmove = elementDragTouch;
     }
 
     function elementDrag(e) {
@@ -50,8 +60,22 @@ function dragElement(element) {
         element.style.left = (element.offsetLeft - pos1) + "px";
     }
 
+    function elementDragTouch(e) {
+        e = e || window.event;
+        e.preventDefault();
+        const touch = e.touches[0];
+        pos1 = pos3 - touch.clientX;
+        pos2 = pos4 - touch.clientY;
+        pos3 = touch.clientX;
+        pos4 = touch.clientY;
+        element.style.top = (element.offsetTop - pos2) + "px";
+        element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
     function closeDragElement() {
         document.onmouseup = null;
         document.onmousemove = null;
+        document.ontouchend = null;
+        document.ontouchmove = null;
     }
 }
