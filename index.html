@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="wrapper">
@@ -48,48 +50,37 @@
                         </div>
                         <!-- Add more skill icons as needed -->
                     </div>
-                </section>                
+                </section>
             </div>
             <div class="projects-contact">
-                <section id="projects" class="window projects">
-                    <div class="window-header">
-                        <span>Projects</span>
-                        <span class="window-controls">
-                            <button>-</button>
-                            <button>☐</button>
-                            <button>X</button>
-                        </span>
+                <section id="projects" class="project-list">
+                    <div class="project" onclick="openProject('project1', this)">
+                        <i class="fas fa-folder" id="icon-project1"></i>
+                        <div class="project-name">Project 1</div>
                     </div>
-                    <div class="window-content">
-                        <h2>Project Showcase</h2>
-                        <div class="project-list">
-                            <div class="project" onclick="openProject('project1')">
-                                <h3>Project 1</h3>
-                            </div>
-                            <div class="project" onclick="openProject('project2')">
-                                <h3>Project 2</h3>
-                            </div>
-                            <!-- Add more projects as needed -->
-                        </div>
-                    </div>
-                </section>
-                <section id="contact" class="contact-section"> 
-                    <div class="conact-window">
-                    <div class="contact-header"> 
-                        <span>Contact</span> 
-                    </div> 
-                    <divclass="contact-content"> 
-                        <h2>Contact</h2> 
-                        <form> 
-                            <label for="name">Name:</label> 
-                            <input type="text" id="name"name="name"> 
-                            <label for="email">Email:</label> 
-                            <input type="email" id="email" name="email"> 
-                            <labelfor="message">Message:</label> 
-                            <textarea id="message" name="message"></textarea> 
-                            <input type="submit"value="Submit"> 
-                        </form> 
-                    </div> 
+                    <div class="project" onclick="openProject('project2', this)">
+                        <i class="fas fa-folder" id="icon-project2"></i>
+                        <div class="project-name">Project 2</div>
+                    </div>                    
+                    <!-- Add more projects as needed -->
+                </section>                
+                <section id="contact" class="contact-section">
+                    <div class="contact-window">
+                        <div class="contact-header"> 
+                            <span>Contact</span> 
+                        </div> 
+                        <div class="contact-content"> 
+                            <h2>Contact</h2> 
+                            <form> 
+                                <label for="name">Name:</label> 
+                                <input type="text" id="name" name="name"> 
+                                <label for="email">Email:</label> 
+                                <input type="email" id="email" name="email"> 
+                                <label for="message">Message:</label> 
+                                <textarea id="message" name="message"></textarea> 
+                                <input type="submit" value="Submit"> 
+                            </form> 
+                        </div> 
                     </div>
                 </section>
             </div>

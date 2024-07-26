@@ -1,5 +1,11 @@
-function openProject(projectId) {
+function openProject(projectId, projectElement) {
     const projectWindow = document.getElementById(projectId);
+    const icon = projectElement.querySelector('i');
+
+    // Change the icon to open folder
+    icon.classList.remove('fa-folder');
+    icon.classList.add('fa-folder-open');
+
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     const projectWindowWidth = projectWindow.clientWidth;
@@ -19,7 +25,15 @@ function openProject(projectId) {
 }
 
 function closeProject(projectId) {
-    document.getElementById(projectId).style.display = "none";
+    const projectWindow = document.getElementById(projectId);
+    const projectElement = document.querySelector(`[onclick*="${projectId}"]`);
+    const icon = projectElement.querySelector('i');
+
+    // Change the icon back to closed folder
+    icon.classList.remove('fa-folder-open');
+    icon.classList.add('fa-folder');
+
+    projectWindow.style.display = "none";
 }
 
 function dragElement(element) {
