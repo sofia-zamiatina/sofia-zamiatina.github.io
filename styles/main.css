@@ -23,7 +23,7 @@ body {
 }
 
 header {
-    background-color: #000080;
+    background-color: rgb(25, 32, 55);
     color: white;
     padding: 10px;
     text-align: center;
@@ -62,7 +62,10 @@ main.content {
     display: flex;
     flex: 1;
     flex-direction: row;
+    align-items: center;
+    align-content: center;
     gap: 10px;
+    border-radius: 12px; /* Add rounded corners */
     /* padding-left: 20px; */
 }
 
@@ -80,14 +83,15 @@ main.content {
 }
 
 .window {
-    margin: 20px 0;
-    border: 2px solid #000080;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    background-color: white;
+    background-color: rgb(25, 32, 55, 0.8); /* Peach rose color with 80% opacity */
+    border: 2px solid white;
+    border-radius: 12px; /* Rounded corners */
+    padding: 20px; /* Optional: Add padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow */
 }
 
 .window-header {
-    background-color: #000080;
+    background-color: rgba(25, 32, 55);
     color: white;
     padding: 5px;
     display: flex;
@@ -112,6 +116,7 @@ main.content {
 }
 
 .window-content {
+    color: white;
     padding: 20px;
     text-align: center;
 }
@@ -124,7 +129,7 @@ main.content {
     gap: 20px;
     border: none;
     box-shadow: none;
-    background-color: hsla( 0, 0%, 0%, 0.5 );
+    background-color: rgb(25, 32, 55, 0.7);
     border-radius: 8px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -149,7 +154,7 @@ main.content {
     top: 0;
     width: 200px;
     padding: 10px;
-    border: 1px solid #000080;
+    border: 2px solid rgb(255, 255, 255);
     background-color: white;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
     z-index: 10;
@@ -159,7 +164,8 @@ main.content {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    justify-content: center;
+    /* justify-content: center; */
+    padding-left: 25%;
     flex-wrap: wrap;
     margin-top: 40px;
 }
@@ -177,13 +183,13 @@ main.content {
 
 .project i {
     font-size: 48px; /* Size of the folder icon */
-    color: #000080; /* Color of the icon */
+    color: #FAD6D6; /* Color of the icon */
 }
 
 .project-name {
     margin-top: 5px; /* Space between icon and project name */
     font-size: 16px; /* Font size of the project name */
-    color: #000080; /* Color of the project name */
+    color: #FAD6D6; /* Color of the project name */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add shadow to make text more readable */
 }
 
@@ -194,12 +200,12 @@ main.content {
     height: auto;
     background-color: white;
     z-index: 1000;
-    border: 2px solid #000080;
+    border: 2px solid rgba(25, 32, 55);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .project-detail-window .window-header {
-    background-color: #000080;
+    background-color: rgba(25, 32, 55);
     color: white;
     padding: 10px;
     display: flex;
@@ -214,31 +220,31 @@ main.content {
 
 .contact-section {
     align-self: flex-end;
-    grid-column: 3 / 4;
-    grid-row: 3 / 4;
+    width: 50%;
     margin-top: 100px;
     padding: 20px;
-    background-color: white;
-    border: 2px solid #000080;
+    padding-top: 200px;
     box-shadow: none;
 }
 
 .contact-window {
-    background-color: white;
-    border: 2px solid #000080;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(25, 32, 55, 0.7); /* Tint color with 80% opacity */
+    border: 2px solid rgba(25, 32, 55);
+    border-radius: 12px; /* Optional: Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow */
     padding: 20px;
-    width: 300px;
+    width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    position: relative; /* Ensure the backdrop-filter applies correctly */
+    backdrop-filter: blur(2px); /* Apply the blur effect */
 }
 
 .contact-header {
-    background-color: #000080;
+    background-color: rgba(25, 32, 55);
     color: white;
     padding: 10px;
-    border-bottom: 1px solid #000080;
+    border-bottom: 1px solid rgba(25, 32, 55);
     font-size: 16px;
     margin-bottom: 10px;
 }
@@ -249,6 +255,7 @@ main.content {
 }
 
 .contact-section form {
+    color: white;
     display: flex;
     flex-direction: column;
 }
@@ -269,7 +276,7 @@ main.content {
 .contact-section input[type="submit"] {
     padding: 10px;
     border: none;
-    background-color: #000080;
+    background-color: rgba(25, 32, 55);
     color: white;
     cursor: pointer;
 }
@@ -344,11 +351,13 @@ footer {
     }
 
     .contact-section {
-        align-self: stretch;
+        width: 100%;
+        align-self: center;
         margin-top: 20px;
     }
 
     .project-list {
+        justify-content: center;
         display: flex;
         flex-direction: row;
         margin-bottom: 400px;
