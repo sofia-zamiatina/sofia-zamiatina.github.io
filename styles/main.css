@@ -3,8 +3,8 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #c0c0c0;
-    background-image: url('../images/background.png'); /* Add your background image URL here */
+    background-color: #FAD6D6; /* Peach rose color */
+    /* background-image: url('../images/background.png'); Add your background image URL here */
     background-size: cover; /* Cover the entire area */
     background-attachment: scroll; /* Make the background scrollable */
     background-repeat: no-repeat; /* Prevent the background from repeating */
@@ -55,14 +55,23 @@ main.content {
 }
 
 .bio-skills {
+    background-color: #FAD6D6; /* Peach rose color */
+    max-width: 25%; /* Adjust as needed to make it narrower */
+    margin: 0 auto; /* Center the section */
+    padding: 20px; /* Add some padding if needed */
     display: flex;
     flex: 1;
     flex-direction: row;
     gap: 10px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 .projects-contact {
+    background-image: url('../images/background.png'); /* Use your background image URL */
+    background-size: cover; /* Cover the entire area */
+    background-attachment: scroll; /* Make the background scrollable */
+    background-repeat: no-repeat; /* Prevent the background from repeating */
+    background-position: center; /* Center the background image */
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -125,6 +134,7 @@ main.content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 
 .skill {
@@ -271,14 +281,23 @@ main.content {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #000080;
+    background-color: rgb(25, 32, 55);
     color: white;
 }
 
 @media (max-width: 768px) {
+
+    main.content {
+        width: 100%; /* Full width of the viewport */
+        margin: 0; /* Remove any default margin */
+        padding: 0; /* Remove any default padding */
+        box-sizing: border-box; /* Include padding and border in width calculation */
+    }
+
     .bio-skills, .projects-contact {
+        max-width: 100%; /* Adjust as needed to make it narrower */
         flex-direction: column;
-        gap: 20px;
+        /* gap: 20px; */
     }
 
     .skill-icons {
@@ -293,7 +312,7 @@ footer {
     
     .skill {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         position: relative;
     }
@@ -304,13 +323,24 @@ footer {
         top: 100%; /* Position below the icon */
         left: 50%;
         transform: translateX(-50%);
-        white-space: nowrap;
+        white-space: normal; /* Allow text to wrap */
+        word-wrap: break-word; /* Break long words */
+        overflow-wrap: break-word; /* Break long words */
         margin-top: 10px;
+        padding: 10px; /* Add some padding for better readability */
+        background-color: white; /* Optional: add background color */
+        border: 1px solid #ccc; /* Optional: add a border */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+        max-width: 100vw; /* Ensure it doesn't exceed the viewport width */
     }
     
 
     .projects-contact {
+        width: 100vw;
+        margin: 0;
+        padding-left: 20px;
         flex-direction: column;
+        position: relative;
     }
 
     .contact-section {
@@ -319,9 +349,9 @@ footer {
     }
 
     .project-list {
-        display: block;
-        margin: 0;
-        padding: 0;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 400px;
     }
 
     .project {
@@ -331,12 +361,20 @@ footer {
 
     .project-detail-window {
         display: none;
-        position: fixed;
-        width: auto;
-        height: auto;
+        position: absolute; /* Position absolutely within the project container */
+        bottom: -100%; /* Place the description window below the project folder */
+        left: 50%;
+        transform: translateX(-10%);
+        width: 400px;
+        box-sizing: border-box;
+        max-height: 400px; /* Adjust max height as needed */
+        max-width: calc(100% - 20px);
+        margin: 0 auto;
+        overflow-y: auto; /* Add scrollbar if content exceeds max height */
+        overflow-x: none; /* Add scrollbar if content exceeds max height */
         background-color: white;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
         z-index: 1000;
-        border: 2px solid #000080;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
 }

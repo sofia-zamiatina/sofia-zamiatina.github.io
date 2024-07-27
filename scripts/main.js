@@ -11,17 +11,36 @@ function openProject(projectId, projectElement) {
     const projectWindowWidth = projectWindow.clientWidth;
     const projectWindowHeight = projectWindow.clientHeight;
 
-    const maxX = windowWidth - projectWindowWidth;
-    const maxY = windowHeight - projectWindowHeight - 100;
+    if (windowWidth <= 768) {
+        // Position the description window below and aligned to the left of the project folder on mobile
+        projectWindow.style.display = "block";
+        const rect = projectElement.getBoundingClientRect();
+        projectWindow.style.top = `${rect.bottom + window.scrollY}px`;
+        projectWindow.style.left = `0px`; // Align it to the left of the viewport
+        // projectWindow.style.width = `100%`; // Full width of the viewport
 
-    const randomX = Math.max(0, Math.floor(Math.random() * maxX));
-    const randomY = Math.max(0, Math.floor(Math.random() * maxY));
+        // Optional: Adjust positioning if you want to make sure it doesn’t exceed the screen width
+        const projectWindowWidth = projectWindow.clientWidth;
+        const maxLeft = window.innerWidth - projectWindowWidth;
 
-    projectWindow.style.display = "block";
-    projectWindow.style.left = `${randomX}px`;
-    projectWindow.style.top = `${randomY}px`;
+        if (rect.left + window.scrollX > maxLeft) {
+            projectWindow.style.left = `${maxLeft}px`;
+        }
 
-    dragElement(projectWindow);
+    } else {
+
+        const maxX = windowWidth - projectWindowWidth;
+        const maxY = windowHeight - projectWindowHeight - 100;
+
+        const randomX = Math.max(0, Math.floor(Math.random() * maxX));
+        const randomY = Math.max(0, Math.floor(Math.random() * maxY));
+
+        projectWindow.style.display = "block";
+        projectWindow.style.left = `${randomX}px`;
+        projectWindow.style.top = `${randomY}px`;
+
+        dragElement(projectWindow);
+    }
 }
 
 function closeProject(projectId) {
