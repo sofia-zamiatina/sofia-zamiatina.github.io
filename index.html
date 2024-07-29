@@ -23,66 +23,73 @@
         </header>
         <main class="content">
             <div class="bio-skills">
-                <section id="about" class="window bio">
-                    <div class="window-header">
-                        <span>About Me</span>
-                        <span class="window-controls">
-                            <button>-</button>
-                            <button>☐</button>
-                            <button>X</button>
-                        </span>
-                    </div>
-                    <div class="window-content">
+                <div class="skills-container">
+                    <section id="soft-skills" class="soft-skills">
+                        <h3>Soft Skills</h3>
+                        <div class="skill-icons">
+                            <div class="skill soft-skill" data-description="Teamwork: Ability to work effectively in teams.">
+                                <i class="fa-solid fa-users"></i>
+                                <div class="soft-skill-description-window"></div>
+                            </div>
+                        <!-- TODO: Add more soft skills -->
+                        </div>
+                    </section>                    
+                    
+                    <section id="about" class="bio">
                         <h2>About Me</h2>
                         <p>My name is Sofia and I write code!</p>
                         <p>Location: XYZ</p>
                         <p>Occupation: Software Developer</p>
                         <p>Education: ABC University</p>
-                    </div>
-                </section>
-                <section id="skills" class="skills">
-                    <div class="skill-icons">
-                        <div class="skill" data-description="HTML5: Markup language for creating web pages.">
-                            <i class="fa-solid fa-code"></i>
+                    </section>
+
+                    <section id="hard-skills" class="hard-skills">
+                        <h3>Hard Skills</h3>
+                        <div class="skill-icons">
+                            <div class="skill hard-skill" data-description="HTML5: Markup language for creating web pages.">
+                                <i class="fa-solid fa-code"></i>
+                                <div class="hard-skill-description-window"></div>
+                            </div>
+                            <div class="skill" data-description="CSS3: Style sheet language used for describing the presentation of a document.">
+                                <img src="path/to/css3-icon.png" alt="CSS3">
+                                <div class="hard-skill-description-window"></div>
+                            </div>
                         </div>
-                        <div class="skill" data-description="CSS3: Style sheet language used for describing the presentation of a document.">
-                            <img src="path/to/css3-icon.png" alt="CSS3">
-                        </div>
-                        <!-- Add more skill icons as needed -->
-                    </div>
-                </section>
+                        <!-- TODO: Add more hard skills -->
+                    </section>
+
+                </div>
             </div>
-            <div class="projects-contact">
-                <section id="projects" class="project-list">
-                    <div class="project" onclick="openProject('project1', this)">
-                        <i class="fas fa-folder" id="icon-project1"></i>
-                        <div class="project-name">Project 1</div>
-                    </div>
-                    <div class="project" onclick="openProject('project2', this)">
-                        <i class="fas fa-folder" id="icon-project2"></i>
-                        <div class="project-name">Project 2</div>
-                    </div>                    
-                    <!-- Add more projects as needed -->
-                </section>                
-                <section id="contact" class="contact-section">
-                    <div class="contact-window">
-                        <div class="contact-header"> 
-                            <span>Contact</span> 
-                        </div> 
-                        <div class="contact-content"> 
-                            <form> 
-                                <label for="name">Name:</label> 
-                                <input type="text" id="name" name="name"> 
-                                <label for="email">Email:</label> 
-                                <input type="email" id="email" name="email"> 
-                                <label for="message">Message:</label> 
-                                <textarea id="message" name="message"></textarea> 
-                                <input type="submit" value="Submit"> 
-                            </form> 
-                        </div> 
-                    </div>
-                </section>
-            </div>
+            <section id="projects" class="projects">
+                <div class="project" onclick="openProject('project1', this)">
+                    <i class="fas fa-folder" id="icon-project1"></i>
+                    <div class="project-name">Project 1</div>
+                </div>
+                <div class="project" onclick="openProject('project2', this)">
+                    <i class="fas fa-folder" id="icon-project2"></i>
+                    <div class="project-name">Project 2</div>
+                </div>
+                <!-- TODO: Add more projects as needed -->
+            </section>                
+            <section id="contact" class="contact-section">
+                <button class="contact-button" onclick="toggleContactWindow()">Contact</button>
+                <div id="contact-window" class="contact-window">
+                    <div class="contact-header"> 
+                        <span>Contact</span> 
+                    </div> 
+                    <div class="contact-content"> 
+                        <form> 
+                            <label for="name">Name:</label> 
+                            <input type="text" id="name" name="name"> 
+                            <label for="email">Email:</label> 
+                            <input type="email" id="email" name="email"> 
+                            <label for="message">Message:</label> 
+                            <textarea id="message" name="message"></textarea> 
+                            <input type="submit" value="Submit"> 
+                        </form> 
+                    </div> 
+                </div>
+            </section>
         </main>
         <footer>
             <p>&copy; 2024 Sofia Zamiatina. All rights reserved.</p>
@@ -106,6 +113,7 @@
             <img src="path/to/screenshot1.jpg" alt="Project 1 Screenshot">
         </div>
     </div>
+
     <div id="project2" class="project-detail-window">
         <div class="window-header">
             <span>Project 2</span>
@@ -124,5 +132,11 @@
     </div>    
 
     <script src="scripts/main.js"></script>
+    <script>
+        function toggleContactWindow() {
+            const contactWindow = document.querySelector('.contact-window');
+            contactWindow.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

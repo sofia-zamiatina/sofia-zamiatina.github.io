@@ -149,9 +149,11 @@ skills.forEach(skill => {
 });
 
 function showSkillDescription(skill) {
-    const description = skill.getAttribute('data-description');
-    let descriptionWindow = skill.querySelector('.skill-description-window');
     
+    const description = skill.getAttribute('data-description'); 
+    const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill'; 
+    let descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
+
     if (!descriptionWindow) {
         descriptionWindow = document.createElement('div');
         descriptionWindow.classList.add('skill-description-window');
@@ -163,7 +165,10 @@ function showSkillDescription(skill) {
 }
 
 function hideSkillDescription(skill) {
-    const descriptionWindow = skill.querySelector('.skill-description-window');
+
+    const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill'; 
+    const descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
+
     if (descriptionWindow) {
         descriptionWindow.style.display = 'none';
     }

@@ -4,10 +4,8 @@ html, body {
     padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #FAD6D6; /* Peach rose color */
-    /* background-image: url('../images/background.png'); Add your background image URL here */
-    background-size: cover; /* Cover the entire area */
-    background-attachment: scroll; /* Make the background scrollable */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
+    background-image: url('../images/background.png'); /* Background image */
+    background-size: cover; /* Cover the entire viewport */
     background-position: center; /* Center the background image */
 }
 
@@ -50,124 +48,104 @@ nav ul li a {
 main.content {
     flex-grow: 1;
     display: flex;
-    flex-wrap: wrap;
-    padding: 0 20px;
-}
-
-.bio-skills {
-    background-color: #FAD6D6; /* Peach rose color */
-    max-width: 25%; /* Adjust as needed to make it narrower */
-    margin: 0 auto; /* Center the section */
-    padding: 20px; /* Add some padding if needed */
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    gap: 10px;
-    border-radius: 12px; /* Add rounded corners */
-    /* padding-left: 20px; */
-}
-
-.projects-contact {
-    background-image: url('../images/background.png'); /* Use your background image URL */
-    background-size: cover; /* Cover the entire area */
-    background-attachment: scroll; /* Make the background scrollable */
-    background-repeat: no-repeat; /* Prevent the background from repeating */
-    background-position: center; /* Center the background image */
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 10px;
-    padding-right: 20px;
-}
-
-.window {
-    background-color: rgb(25, 32, 55, 0.8); /* Peach rose color with 80% opacity */
-    border: 2px solid white;
-    border-radius: 12px; /* Rounded corners */
-    padding: 20px; /* Optional: Add padding */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow */
-}
-
-.window-header {
-    background-color: rgba(25, 32, 55);
-    color: white;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    cursor: move;
-}
-
-.window-controls button {
-    background-color: #808080;
-    border: none;
-    color: white;
-    width: 20px;
-    height: 20px;
-    margin-left: 2px;
-    cursor: pointer;
-}
-
-.window-controls button:hover {
-    background-color: #a0a0a0;
-}
-
-.window-content {
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.skills {
-    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     gap: 20px;
-    border: none;
-    box-shadow: none;
-    background-color: rgb(25, 32, 55, 0.7);
-    border-radius: 8px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    /* background: rgba(255, 255, 255, 0.8); Semi-transparent background for content */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for content */
 }
 
-.skill-icons {
+.bio-skills {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.bio {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.skills-container {
     align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    gap: 20px;
+}
+
+.soft-skills, .hard-skills {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */
+    max-width: 5%;
+    max-height: 100%;
+    color: white;
+    gap: 20px; /* Space between skill items */
+    flex: 1;
+    background-color: rgba(25, 32, 55, 0.7);
+    border-radius: 8px;
+    padding: 20px;
     color: white;
 }
 
-.skill {
-    margin: 20px 0;
-    cursor: pointer;
-    position: relative;
+.soft-skills {
+    margin-left: 10px;
 }
 
-.skill-description-window {
-    position: absolute;
-    left: 100%;
-    top: 0;
-    width: 200px;
+.hard-skills {
+    margin-right: 10px;
+}
+
+.skill, .soft-skill {
+    position: relative; /* Make the tooltip position relative to the skill */
     padding: 10px;
-    border: 2px solid rgb(255, 255, 255);
-    background-color: white;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    z-index: 10;
 }
 
-.project-list {
+.soft-skill-description-window, 
+.hard-skill-description-window {
+    display: none; /* Hide the tooltip by default */
+    position: absolute;
+    top: -25%;
+    width: 200px; /* Set a fixed width for the tooltip */
+    padding: 10px; /* Padding inside the tooltip */
+    border-radius: 8px; /* Rounded corners */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    color: white; /* Text color inside the tooltip */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Shadow for the tooltip */
+    z-index: 10; /* Ensure tooltip appears on top */
+    text-align: center; /* Center text inside tooltip */
+    white-space: normal; /* Allow text to wrap */
+    overflow: hidden; /* Hide overflowed text */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+.soft-skill-description-window {
+    right: 100%;
+}
+
+.hard-skill-description-window {
+    left: 100%;
+}
+
+.projects {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    /* justify-content: center; */
-    padding-left: 25%;
     flex-wrap: wrap;
-    margin-top: 40px;
+    gap: 10px;
+    justify-content: center;
+    max-width: 1200px;
 }
 
 .project {
@@ -177,20 +155,21 @@ main.content {
     cursor: pointer;
     padding: 10px;
     text-align: center;
-    background-color: transparent;
+    /* background-color: rgba(255, 255, 255, 0.8); Background for project items */
     border-radius: 8px;
 }
 
 .project i {
     font-size: 48px; /* Size of the folder icon */
     color: #FAD6D6; /* Color of the icon */
+    text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
 }
 
 .project-name {
     margin-top: 5px; /* Space between icon and project name */
     font-size: 16px; /* Font size of the project name */
     color: #FAD6D6; /* Color of the project name */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add shadow to make text more readable */
+    text-shadow: 4px 4px 6px rgba(0,0,0); /* Add shadow to make text more readable */
 }
 
 .project-detail-window {
@@ -202,6 +181,7 @@ main.content {
     z-index: 1000;
     border: 2px solid rgba(25, 32, 55);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: move;
 }
 
 .project-detail-window .window-header {
@@ -219,25 +199,37 @@ main.content {
 }
 
 .contact-section {
-    align-self: flex-end;
-    width: 50%;
-    margin-top: 100px;
-    padding: 20px;
-    padding-top: 200px;
-    box-shadow: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+}
+
+.contact-button {
+    background-color: rgba(25, 32, 55);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 .contact-window {
-    background-color: rgba(25, 32, 55, 0.7); /* Tint color with 80% opacity */
+    display: none;
+    background-color: rgba(25, 32, 55, 0.7); /* Tint color with 70% opacity */
     border: 2px solid rgba(25, 32, 55);
-    border-radius: 12px; /* Optional: Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow */
+    border-radius: 12px;
     padding: 20px;
-    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 60px;
+    right: 0;
     max-width: 100%;
-    box-sizing: border-box;
-    position: relative; /* Ensure the backdrop-filter applies correctly */
-    backdrop-filter: blur(2px); /* Apply the blur effect */
+    width: 300px;
+}
+
+.contact-window.show {
+    display: block;
 }
 
 .contact-header {
@@ -293,97 +285,47 @@ footer {
 }
 
 @media (max-width: 768px) {
-
     main.content {
-        width: 100%; /* Full width of the viewport */
-        margin: 0; /* Remove any default margin */
-        padding: 0; /* Remove any default padding */
-        box-sizing: border-box; /* Include padding and border in width calculation */
-    }
-
-    .bio-skills, .projects-contact {
-        max-width: 100%; /* Adjust as needed to make it narrower */
-        flex-direction: column;
-        /* gap: 20px; */
-    }
-
-    .skill-icons {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .skill {
-        margin: 10px;
-    }
-    
-    .skill {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        position: relative;
-    }
-    
-    .skill-description-window {
-        display: block;
-        position: absolute;
-        top: 100%; /* Position below the icon */
-        left: 50%;
-        transform: translateX(-50%);
-        white-space: normal; /* Allow text to wrap */
-        word-wrap: break-word; /* Break long words */
-        overflow-wrap: break-word; /* Break long words */
-        margin-top: 10px;
-        padding: 10px; /* Add some padding for better readability */
-        background-color: white; /* Optional: add background color */
-        border: 1px solid #ccc; /* Optional: add a border */
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
-        max-width: 100vw; /* Ensure it doesn't exceed the viewport width */
-    }
-    
-
-    .projects-contact {
-        width: 100vw;
+        width: 100%;
         margin: 0;
-        padding-left: 20px;
+        padding: 0;
+    }
+
+    .bio-skills {
         flex-direction: column;
-        position: relative;
+        align-items: center;
+    }
+
+    .bio {
+        width: 100%;
+        max-width: none;
+        padding: 20px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .soft-skills, .hard-skills {
+        margin: 0;
+        width: 100%;
     }
 
     .contact-section {
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+    }
+
+    .contact-window {
         width: 100%;
-        align-self: center;
-        margin-top: 20px;
+        max-width: 100%;
     }
 
     .project-list {
-        justify-content: center;
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 400px;
-    }
-
-    .project {
-        margin-bottom: 10px;
-        width: auto;
-    }
-
-    .project-detail-window {
-        display: none;
-        position: absolute; /* Position absolutely within the project container */
-        bottom: -100%; /* Place the description window below the project folder */
-        left: 50%;
-        transform: translateX(-10%);
-        width: 400px;
-        box-sizing: border-box;
-        max-height: 400px; /* Adjust max height as needed */
-        max-width: calc(100% - 20px);
-        margin: 0 auto;
-        overflow-y: auto; /* Add scrollbar if content exceeds max height */
-        overflow-x: none; /* Add scrollbar if content exceeds max height */
-        background-color: white;
-        border: 1px solid #ccc;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
+        flex-direction: column;
+        align-items: center;
     }
 }
