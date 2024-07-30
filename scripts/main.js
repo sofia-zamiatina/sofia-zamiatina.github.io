@@ -173,3 +173,9 @@ function hideSkillDescription(skill) {
         descriptionWindow.style.display = 'none';
     }
 }
+
+function toggleContactWindow() {
+    const contactWindow = document.getElementById('contact-window');
+    contactWindow.classList.toggle('show');
+}
+

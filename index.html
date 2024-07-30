@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- FONTS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
 </head>
 <body>
     <div class="wrapper">
@@ -25,10 +28,21 @@
             <div class="bio-skills">
                 <div class="skills-container">
                     <section id="soft-skills" class="soft-skills">
-                        <h3>Soft Skills</h3>
                         <div class="skill-icons">
                             <div class="skill soft-skill" data-description="Teamwork: Ability to work effectively in teams.">
                                 <i class="fa-solid fa-users"></i>
+                                <div class="soft-skill-description-window"></div>
+                            </div>
+                            <div class="skill soft-skill" data-description="Teamwork: Ability to work effectively in teams.">
+                                <i class="fa-solid fa-keyboard"></i>
+                                <div class="soft-skill-description-window"></div>
+                            </div>
+                            <div class="skill soft-skill" data-description="Teamwork: Ability to work effectively in teams.">
+                                <i class="fa-solid fa-user-secret"></i>
+                                <div class="soft-skill-description-window"></div>
+                            </div>
+                            <div class="skill soft-skill" data-description="Teamwork: Ability to work effectively in teams.">
+                                <i class="fa-solid fa-laptop-code"></i>
                                 <div class="soft-skill-description-window"></div>
                             </div>
                         <!-- TODO: Add more soft skills -->
@@ -36,22 +50,30 @@
                     </section>                    
                     
                     <section id="about" class="bio">
-                        <h2>About Me</h2>
+                        <h2>ABOUT ME</h2>
                         <p>My name is Sofia and I write code!</p>
                         <p>Location: XYZ</p>
                         <p>Occupation: Software Developer</p>
                         <p>Education: ABC University</p>
+                        <p>Education: ABC University</p>
                     </section>
 
                     <section id="hard-skills" class="hard-skills">
-                        <h3>Hard Skills</h3>
                         <div class="skill-icons">
                             <div class="skill hard-skill" data-description="HTML5: Markup language for creating web pages.">
                                 <i class="fa-solid fa-code"></i>
                                 <div class="hard-skill-description-window"></div>
                             </div>
                             <div class="skill" data-description="CSS3: Style sheet language used for describing the presentation of a document.">
-                                <img src="path/to/css3-icon.png" alt="CSS3">
+                                <i class="fa-solid fa-microchip"></i>
+                                <div class="hard-skill-description-window"></div>
+                            </div>
+                            <div class="skill" data-description="CSS3: Style sheet language used for describing the presentation of a document.">
+                                <i class="fa-solid fa-network-wired"></i>
+                                <div class="hard-skill-description-window"></div>
+                            </div>
+                            <div class="skill" data-description="CSS3: Style sheet language used for describing the presentation of a document.">
+                                <i class="fa-solid fa-bug"></i>
                                 <div class="hard-skill-description-window"></div>
                             </div>
                         </div>
@@ -72,10 +94,9 @@
                 <!-- TODO: Add more projects as needed -->
             </section>                
             <section id="contact" class="contact-section">
-                <button class="contact-button" onclick="toggleContactWindow()">Contact</button>
                 <div id="contact-window" class="contact-window">
-                    <div class="contact-header"> 
-                        <span>Contact</span> 
+                    <div class="contact-header" onclick="toggleContactWindow()">
+                        <button class="contact-button">Contact</button>
                     </div> 
                     <div class="contact-content"> 
                         <form> 
@@ -89,7 +110,7 @@
                         </form> 
                     </div> 
                 </div>
-            </section>
+            </section>            
         </main>
         <footer>
             <p>&copy; 2024 Sofia Zamiatina. All rights reserved.</p>
@@ -105,7 +126,7 @@
             </span>
         </div>
         <div class="window-content">
-            <h2>Project 1</h2>
+            <h2> Project 1 </h2>
             <p>Description: This is a detailed description of Project 1.</p>
             <p>Technologies: HTML, CSS, JavaScript</p>
             <p><a href="https://github.com/yourusername/project1" target="_blank">GitHub Repository</a></p>
@@ -116,7 +137,7 @@
 
     <div id="project2" class="project-detail-window">
         <div class="window-header">
-            <span>Project 2</span>
+            <span> Project 2 </span>
             <span class="window-controls">
                 <button onclick="closeProject('project2')">X</button>
             </span>

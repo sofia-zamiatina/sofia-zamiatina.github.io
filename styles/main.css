@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #FAD6D6; /* Peach rose color */
     background-image: url('../images/background.png'); /* Background image */
     background-size: cover; /* Cover the entire viewport */
@@ -52,8 +52,6 @@ main.content {
     align-items: center;
     padding: 20px;
     gap: 20px;
-    /* background: rgba(255, 255, 255, 0.8); Semi-transparent background for content */
-    border-radius: 12px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for content */
 }
 
@@ -67,18 +65,9 @@ main.content {
     max-width: 1200px;
 }
 
-.bio {
-    flex: 1;
-    max-width: 600px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background */
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
 .skills-container {
     align-items: center;
+    height: 100%;
     justify-content: center;
     display: flex;
     flex-direction: row;
@@ -86,17 +75,47 @@ main.content {
     gap: 20px;
 }
 
+.bio {
+    flex: 1;
+    max-width: 600px;
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(250, 214, 214); /* Slightly more opaque background */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.skill-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the skill icons horizontally */
+}
+
+.skill i, /* FontAwesome Icons */
+.skill img { /* Image icons */
+    color: rgba(25, 32, 55); /* Set color of FontAwesome icons */
+    fill: rgba(25, 32, 55); /* Set color of image icons (if SVG) */
+    font-size: 24px; /* Adjust the size if necessary */
+    margin: 10px 0; /* Add margin for spacing */
+}
+
 .soft-skills, .hard-skills {
     display: flex;
     flex-direction: column; /* Align items vertically */
     align-items: center; /* Center items horizontally */
-    max-width: 5%;
+    max-width: 2.5%;
     max-height: 100%;
     color: white;
     gap: 20px; /* Space between skill items */
     flex: 1;
-    background-color: rgba(25, 32, 55, 0.7);
-    border-radius: 8px;
+    /* background-color: rgba(25, 32, 55, 0.8); */
+    background-color: rgba(250, 214, 214, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
     padding: 20px;
     color: white;
 }
@@ -133,12 +152,14 @@ main.content {
 }
 
 .soft-skill-description-window {
-    right: 100%;
+    right: 75px;
 }
 
 .hard-skill-description-window {
-    left: 100%;
+    left: 75px;
 }
+
+
 
 .projects {
     display: flex;
@@ -156,7 +177,6 @@ main.content {
     padding: 10px;
     text-align: center;
     /* background-color: rgba(255, 255, 255, 0.8); Background for project items */
-    border-radius: 8px;
 }
 
 .project i {
@@ -168,8 +188,9 @@ main.content {
 .project-name {
     margin-top: 5px; /* Space between icon and project name */
     font-size: 16px; /* Font size of the project name */
-    color: #FAD6D6; /* Color of the project name */
-    text-shadow: 4px 4px 6px rgba(0,0,0); /* Add shadow to make text more readable */
+    color: #FAD6D6;
+    text-shadow: 2px 2px 4px rgba(0,0,0); /* Add shadow to make text more readable */
+    font-weight: bold; 
 }
 
 .project-detail-window {
@@ -177,73 +198,106 @@ main.content {
     position: fixed;
     width: auto;
     height: auto;
-    background-color: white;
+    /* background-color: rgba(25, 32, 55, 0.7); */
+    background-color: #FAD6D6;
     z-index: 1000;
-    border: 2px solid rgba(25, 32, 55);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    cursor: move;
+    border-radius: 12px;
 }
 
 .project-detail-window .window-header {
     background-color: rgba(25, 32, 55);
-    color: white;
+    cursor: move;
+    color: #FAD6D6;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
 .project-detail-window .window-content {
+    background-color: #FAD6D6;
     padding: 20px;
     text-align: left;
+    border-radius: 12px;
+}
+
+.project-detail-window .window-controls button {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No borders */
+    color: #FAD6D6; /* Specific color */
+    font-size: 16px; /* Adjust size as needed */
+    cursor: pointer;
+    outline: none; /* Remove default outline */
+}
+
+.project-detail-window .window-controls button:hover {
+    color: #ffcccc; /* Optional: Change color on hover */
+}
+
+.project-detail-window .window-controls button:focus {
+    outline: none; /* Ensure no focus outline */
 }
 
 .contact-section {
     position: fixed;
     bottom: 0;
-    right: 0;
-    margin: 20px;
-}
-
-.contact-button {
-    background-color: rgba(25, 32, 55);
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    width: 100%;
+    z-index: 1000;
 }
 
 .contact-window {
-    display: none;
-    background-color: rgba(25, 32, 55, 0.7); /* Tint color with 70% opacity */
-    border: 2px solid rgba(25, 32, 55);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: absolute;
-    bottom: 60px;
-    right: 0;
-    max-width: 100%;
-    width: 300px;
+    bottom: -100%; /* Start off-screen */
+    margin-bottom: 5%;
+    width: 100%;
+    max-width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(25, 32, 55, 0.7);
+    border: 2px solid rgba(25, 32, 55);
+    border-radius: 12px 12px 0 0; /* Rounded corners on top */
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: bottom 0.3s ease; /* Smooth slide animation */
 }
 
 .contact-window.show {
-    display: block;
+    bottom: 0; /* Slide up into view */
 }
 
 .contact-header {
     background-color: rgba(25, 32, 55);
     color: white;
     padding: 10px;
+    text-align: center;
+    cursor: pointer;
     border-bottom: 1px solid rgba(25, 32, 55);
     font-size: 16px;
     margin-bottom: 10px;
+    border-radius: 8px 8px 0 0; /* Rounded corners on top */
+}
+
+.contact-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .contact-content {
+    display: none; /* Hide content initially */
     padding: 20px;
     text-align: left;
+}
+
+.contact-window.show .contact-content {
+    display: block; /* Show content when window is visible */
 }
 
 .contact-section form {
