@@ -21,6 +21,7 @@ body {
 }
 
 header {
+    display: none;
     background-color: rgb(25, 32, 55);
     color: white;
     padding: 10px;
@@ -361,6 +362,7 @@ body {
 }
 
 header {
+    display: none;
     background-color: rgb(25, 32, 55);
     color: white;
     padding: 10px;
@@ -685,7 +687,16 @@ footer {
         padding: 0;
     }
 
+    header {
+        display: block;
+        background-color: rgb(25, 32, 55);
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
     .bio-skills {
+        padding-top: 20px;
         flex-direction: column;
         align-items: center;
     }
