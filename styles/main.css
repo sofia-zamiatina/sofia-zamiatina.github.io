@@ -420,7 +420,7 @@ main.content {
 .bio {
     flex: 1;
     max-width: 800px;
-    height: 100%;
+    height: auto;
     padding: 20px;
     background-color: rgba(250, 214, 214); /* Slightly more opaque background */
     border-radius: 12px;
@@ -470,7 +470,7 @@ main.content {
     margin-right: 10px;
 }
 
-.skill, .soft-skill {
+.skill, .soft-skill, .hard-skill {
     position: relative; /* Make the tooltip position relative to the skill */
     padding: 10px;
 }
@@ -689,14 +689,17 @@ footer {
 
     header {
         display: block;
+        position: fixed;
         background-color: rgb(25, 32, 55);
         color: white;
         padding: 10px;
         text-align: center;
+        width: 100%;
     }
 
     .bio-skills {
-        padding-top: 20px;
+        padding-top: 60px;
+        padding-bottom: 200px;
         flex-direction: column;
         align-items: center;
     }
@@ -714,8 +717,32 @@ footer {
     }
 
     .soft-skills, .hard-skills {
-        margin: 0;
-        width: 100%;
+        position: absolute;
+        justify-content: center; /* Center align the icons */
+        margin-top: 600px;
+        width: 90%; /* Ensure full width on mobile */
+        max-height: 5%;
+        max-width: none; /* Remove any max-width constraints */
+        color: white;
+        gap: 20px; /* Space between skill items */
+        flex: 1;
+        /* background-color: rgba(25, 32, 55, 0.8); */
+        background-color: rgba(250, 214, 214, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        color: white;
+    }
+
+    .skill-icons {
+        flex-direction: row;
+    }
+
+    .soft-skills {
+        margin-bottom: 100px;
+    }
+
+    .hard-skills {
+        margin-top: 700px;
     }
 
     .projects {
