@@ -699,7 +699,7 @@ footer {
 
     .bio-skills {
         padding-top: 60px;
-        padding-bottom: 200px;
+        padding-bottom: 400px;
         flex-direction: column;
         align-items: center;
     }
@@ -719,10 +719,9 @@ footer {
     .soft-skills, .hard-skills {
         position: absolute;
         justify-content: center; /* Center align the icons */
-        margin-top: 600px;
+        margin-top: 800px;
         width: 90%; /* Ensure full width on mobile */
-        max-height: 5%;
-        max-width: none; /* Remove any max-width constraints */
+        height: 200px;
         color: white;
         gap: 20px; /* Space between skill items */
         flex: 1;
@@ -734,27 +733,45 @@ footer {
     }
 
     .skill-icons {
-        flex-direction: row;
+        flex-direction: column;
     }
 
     .soft-skills {
-        margin-bottom: 100px;
+        margin-right: 100px;
     }
 
     .hard-skills {
-        margin-top: 700px;
+        margin-left: 100px;
+    }
+
+    .soft-skill-description-window, 
+    .hard-skill-description-window {
+        display: none; /* Hide the tooltip by default */
+        position: absolute;
+        top: -25%;
+        width: 140px; /* Set a fixed width for the tooltip */
+        padding: 10px; /* Padding inside the tooltip */
+        border-radius: 8px; /* Rounded corners */
+        background-color: rgba(25, 32, 55, 0.7); /* Semi-transparent black background */
+        color: white; /* Text color inside the tooltip */
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Shadow for the tooltip */
+        z-index: 10; /* Ensure tooltip appears on top */
+        text-align: center; /* Center text inside tooltip */
+        white-space: normal; /* Allow text to wrap */
+        overflow: hidden; /* Hide overflowed text */
+        text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+    .soft-skill-description-window {
+        right: 58px;
+    }
+    
+    .hard-skill-description-window {
+        left: 50px;
     }
 
     .projects {
         margin-bottom: 400px;
-    }
-
-    .soft-skill-description-window {
-        left: 75px;
-    }
-    
-    .hard-skill-description-window {
-        right: 75px;
     }
 
     .project-detail-window {

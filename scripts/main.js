@@ -19,14 +19,6 @@ function openProject(projectId, projectElement) {
         projectWindow.style.left = `0px`; // Align it to the left of the viewport
         // projectWindow.style.width = `100%`; // Full width of the viewport
 
-        // // Optional: Adjust positioning if you want to make sure it doesn’t exceed the screen width
-        // const projectWindowWidth = projectWindow.clientWidth;
-        // const maxLeft = window.innerWidth - projectWindowWidth;
-
-        // if (rect.left + window.scrollX > maxLeft) {
-        //     projectWindow.style.left = `${maxLeft}px`;
-        // }
-
     } else {
 
         const maxX = windowWidth - projectWindowWidth;
@@ -148,6 +140,38 @@ skills.forEach(skill => {
     });
 });
 
+function toggleSkillDescription(skill) {
+    const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill';
+    const descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
+
+    if (descriptionWindow.style.display === 'block') {
+        descriptionWindow.style.display = 'none';
+    } else {
+        descriptionWindow.style.display = 'block';
+        // Hide other descriptions when one is shown
+        document.addEventListener('touchstart', function(event) {
+            if (!skill.contains(event.target)) {
+                descriptionWindow.style.display = 'none';
+            }
+        }, { once: true });
+    }
+}
+
+// Add event listeners for mouse hover
+document.querySelectorAll('.skill').forEach(skill => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth > 768) {
+        skill.addEventListener('mouseenter', () => showSkillDescription(skill));
+        skill.addEventListener('mouseleave', () => hideSkillDescription(skill));
+    } else {
+        skill.addEventListener('touchstart', (event) => {
+            event.stopPropagation();
+            toggleSkillDescription(skill);
+        });
+    }
+});
+
 function showSkillDescription(skill) {
     
     const description = skill.getAttribute('data-description'); 
@@ -161,7 +185,17 @@ function showSkillDescription(skill) {
     }
 
     descriptionWindow.textContent = description;
-    descriptionWindow.style.display = 'block';
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 768) {
+        skill.addEventListener('touchstart', function(event) {
+            event.stopPropagation();
+            toggleSkillDescription(skill);
+        });
+    } else {
+        descriptionWindow.style.display = 'block';
+    }
+
 }
 
 function hideSkillDescription(skill) {
