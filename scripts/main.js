@@ -19,13 +19,13 @@ function openProject(projectId, projectElement) {
         projectWindow.style.left = `0px`; // Align it to the left of the viewport
         // projectWindow.style.width = `100%`; // Full width of the viewport
 
-        // Optional: Adjust positioning if you want to make sure it doesn’t exceed the screen width
-        const projectWindowWidth = projectWindow.clientWidth;
-        const maxLeft = window.innerWidth - projectWindowWidth;
+        // // Optional: Adjust positioning if you want to make sure it doesn’t exceed the screen width
+        // const projectWindowWidth = projectWindow.clientWidth;
+        // const maxLeft = window.innerWidth - projectWindowWidth;
 
-        if (rect.left + window.scrollX > maxLeft) {
-            projectWindow.style.left = `${maxLeft}px`;
-        }
+        // if (rect.left + window.scrollX > maxLeft) {
+        //     projectWindow.style.left = `${maxLeft}px`;
+        // }
 
     } else {
 
