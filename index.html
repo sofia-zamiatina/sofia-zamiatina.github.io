@@ -113,22 +113,166 @@
     </div>
 
     <!-- Project Detail Windows -->
-    <div id="project1" class="project-detail-window">
-        <div class="window-header">
-            <span>Project 1</span>
-            <span class="window-controls">
-                <button onclick="closeProject('project1')">X</button>
-            </span>
+<!-- Project Detail Windows -->
+<div id="project1" class="project-detail-window">
+    <div class="window-header">
+        <span>Shelter</span>
+        <span class="window-controls">
+            <button onclick="closeProject('project1')">X</button>
+        </span>
+    </div>
+    <div class="window-content">
+        <div class="project-description">
+            <h2>Shelter</h2>
+            <p>Description: "Shelter" is a mobile game where players decide which characters will go to a shelter in an apocalyptic scenario based on their characteristics such as health, profession, and quirks.</p>
+            <p>Technologies: Java, React</p>
+            <p>Role: I was responsible for the back end, where the entire catalog of possible characters is generated. The most challenging part was developing an algorithm that assigns all characteristics to characters, which players can access through a generated code. Given that it's an offline game, we needed an archive for all possible numbers of players.</p>
+            <p><a href="https://github.com/yourusername/shelter" target="_blank">GitHub Repository</a></p>
         </div>
-        <div class="window-content">
-            <h2> Project 1 </h2>
-            <p>Description: This is a detailed description of Project 1.</p>
-            <p>Technologies: HTML, CSS, JavaScript</p>
-            <p><a href="https://github.com/yourusername/project1" target="_blank">GitHub Repository</a></p>
-            <p><a href="https://live-demo-link.com" target="_blank">Live Demo</a></p>
-            <img src="path/to/screenshot1.jpg" alt="Project 1 Screenshot">
+        <div class="media-section">
+            <div class="video-container">
+                <video controls>
+                    <source src="../images/shelter/demo-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="screenshot-container">
+                <h3>Game Rules</h3>
+                <button class="arrow left-arrow" onclick="changeSlide('rules', -1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="screenshot-slider rules-slider">
+                    <img src="../images/shelter/rules1.jpg" alt="Rules Screenshot 1" class="screenshot" style="display: block;">
+                    <img src="../images/shelter/rules2.jpg" alt="Rules Screenshot 2" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules3.jpg" alt="Rules Screenshot 3" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules4.jpg" alt="Rules Screenshot 4" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules5.jpg" alt="Rules Screenshot 5" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules6.jpg" alt="Rules Screenshot 6" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules7.jpg" alt="Rules Screenshot 7" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules8.jpg" alt="Rules Screenshot 8" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules9.jpg" alt="Rules Screenshot 9" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules10.jpg" alt="Rules Screenshot 10" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/rules11.jpg" alt="Rules Screenshot 11" class="screenshot" style="display: none;">
+                </div>
+                <button class="arrow right-arrow" onclick="changeSlide('rules', 1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="screenshot-container">
+                <h3>Gameplay</h3>
+                <button class="arrow left-arrow" onclick="changeSlide('gameplay', -1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="screenshot-slider gameplay-slider">
+                    <img src="../images/shelter/gameplay1.jpg" alt="Gameplay Screenshot 1" class="screenshot" style="display: block;">
+                    <img src="../images/shelter/gameplay2.jpg" alt="Gameplay Screenshot 2" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/gameplay3.jpg" alt="Gameplay Screenshot 3" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/gameplay4.jpg" alt="Gameplay Screenshot 4" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/gameplay5.jpg" alt="Gameplay Screenshot 5" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/gameplay6.jpg" alt="Gameplay Screenshot 6" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/gameplay7.jpg" alt="Gameplay Screenshot 7" class="screenshot" style="display: none;">
+                    <img src="../images/shelter/gameplay8.jpg" alt="Gameplay Screenshot 8" class="screenshot" style="display: none;">
+                </div>
+                <button class="arrow right-arrow" onclick="changeSlide('gameplay', 1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
     </div>
+</div>
+
+<style>
+
+.window-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.project-description {
+    padding: 20px;
+    width: 50%; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.media-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid rgba(250, 214, 214);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(25, 32, 55); */
+}
+
+.video-container {
+    flex: 1;
+}
+
+video {
+    width: auto; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 500px; /* Set a maximum height if needed */
+}
+
+.screenshot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.screenshot-slider {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.screenshot {
+    width: 100%; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0;
+}
+</style>
+
+<script>
+let currentSlides = {
+    rules: 0,
+    gameplay: 0
+};
+
+function changeSlide(sliderType, direction) {
+    const slides = document.querySelectorAll(`#project1 .${sliderType}-slider .screenshot`);
+    const totalSlides = slides.length;
+    slides[currentSlides[sliderType]].style.display = 'none';
+    currentSlides[sliderType] = (currentSlides[sliderType] + direction + totalSlides) % totalSlides;
+    slides[currentSlides[sliderType]].style.display = 'block';
+}
+
+</script>
+
 
     <div id="project2" class="project-detail-window">
         <div class="window-header">

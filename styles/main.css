@@ -197,8 +197,8 @@ main.content {
 .project-detail-window {
     display: none;
     position: fixed;
-    width: auto;
-    height: auto;
+    max-width: 1200px;
+    max-height: 1000px;
     /* background-color: rgba(25, 32, 55, 0.7); */
     background-color: #FAD6D6;
     z-index: 1000;
