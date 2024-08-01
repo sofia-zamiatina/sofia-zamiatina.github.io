@@ -536,13 +536,20 @@ main.content {
 .project-detail-window {
     display: none;
     position: fixed;
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Break long words */
+    overflow: hidden; /* Prevent the window from resizing */
     width: auto;
+    min-width: 80%;
+    max-width: 80%;
     height: auto;
     /* background-color: rgba(25, 32, 55, 0.7); */
     background-color: #FAD6D6;
     z-index: 1000;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
+    box-sizing: border-box;
 }
 
 .project-detail-window .window-header {
