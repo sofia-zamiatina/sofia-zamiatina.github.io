@@ -501,24 +501,6 @@ main.content {
     left: 75px;
 }
 
-.soft-skill-description-window .title {
-    font-weight: bold;
-}
-
-.soft-skill-description-window .description {
-    display: block;
-    margin-top: 5px; /* Adds some space between the title and the description */
-}
-
-.hard-skill-description-window .title {
-    font-weight: bold;
-}
-
-.hard-skill-description-window .description {
-    display: block;
-    margin-top: 5px; /* Adds some space between the title and the description */
-}
-
 .projects {
     display: flex;
     flex-wrap: wrap;
