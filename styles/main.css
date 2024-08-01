@@ -536,9 +536,6 @@ main.content {
 .project-detail-window {
     display: none;
     position: fixed;
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Break long words */
-    overflow-wrap: break-word; /* Break long words */
     overflow: hidden; /* Prevent the window from resizing */
     width: auto;
     min-width: 80%;
