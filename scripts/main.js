@@ -140,6 +140,26 @@ skills.forEach(skill => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const skills = document.querySelectorAll('.skill');
+
+    skills.forEach(skill => {
+        skill.addEventListener('mouseover', () => {
+            const descriptionText = skill.getAttribute('data-description');
+            const [title, ...description] = descriptionText.split(':');
+            const formattedDescription = `<span class="title">${title}:</span><span class="description">${description.join(':')}</span>`;
+            const descriptionWindow = skill.querySelector('.soft-skill-description-window, .hard-skill-description-window');
+            descriptionWindow.innerHTML = formattedDescription;
+            descriptionWindow.style.display = 'block';
+        });
+
+        skill.addEventListener('mouseout', () => {
+            const descriptionWindow = skill.querySelector('.soft-skill-description-window, .hard-skill-description-window');
+            descriptionWindow.style.display = 'none';
+        });
+    });
+});
+
 function toggleSkillDescription(skill) {
     const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill';
     const descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
