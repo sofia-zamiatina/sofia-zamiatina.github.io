@@ -21,8 +21,8 @@ function openProject(projectId, projectElement) {
 
     } else {
 
-        const maxX = windowWidth - projectWindowWidth;
-        const maxY = windowHeight - projectWindowHeight - 100;
+        const maxX = windowWidth - projectWindowWidth - 1200;
+        const maxY = windowHeight - projectWindowHeight - 600;
 
         const randomX = Math.max(0, Math.floor(Math.random() * maxX));
         const randomY = Math.max(0, Math.floor(Math.random() * maxY));
@@ -33,6 +33,11 @@ function openProject(projectId, projectElement) {
 
         dragElement(projectWindow);
     }
+
+    setTimeout(() => {
+        projectWindow.classList.add('show'); // Add show class for animation
+        projectWindow.style.visibility = "visible"; // Make it visible
+    }, 10); // Delay slightly to allow render
 }
 
 function closeProject(projectId) {
@@ -44,7 +49,11 @@ function closeProject(projectId) {
     icon.classList.remove('fa-folder-open');
     icon.classList.add('fa-folder');
 
-    projectWindow.style.display = "none";
+    projectWindow.classList.remove('show'); // Remove show class to hide with animation
+
+    setTimeout(() => {
+        projectWindow.style.display = 'none'; // Hide after animation completes
+    }, 300); // Match the timeout with the transition duration
 }
 
 function dragElement(element) {

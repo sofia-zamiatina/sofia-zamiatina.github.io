@@ -204,6 +204,16 @@ main.content {
     z-index: 1000;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    transform: scale(0.8); /* Start with smaller scale for zoom-in effect */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition properties */
+}
+
+/* Visible state with animation */
+.project-detail-window.show {
+    display: block;
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to normal size */
 }
 
 .project-detail-window .window-header {
