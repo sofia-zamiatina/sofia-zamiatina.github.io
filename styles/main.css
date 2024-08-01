@@ -90,6 +90,24 @@ main.content {
     box-sizing: border-box;
 }
 
+.bio .avatar {
+    align-self: center;
+    right: 0;
+    width: 150px; /* Adjust the size as needed */
+    height: 150px; /* Ensure the height matches the width for a perfect circle */
+    border-radius: 50%; /* Make the image round */
+    margin-bottom: 20px; /* Add some space below the image */
+    object-fit: cover; /* Ensure the image covers the whole area */
+    float: left;
+}
+
+.avatar-container {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
 .skill-icons {
     display: flex;
     flex-direction: column;
