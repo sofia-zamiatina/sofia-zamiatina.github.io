@@ -81,6 +81,7 @@ main.content {
     max-width: 800px;
     height: 100%;
     padding: 20px;
+    padding-bottom: 0;
     background-color: rgba(250, 214, 214); /* Slightly more opaque background */
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -91,6 +92,7 @@ main.content {
 }
 
 .bio .avatar {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     align-self: center;
     right: 0;
     width: 150px; /* Adjust the size as needed */
