@@ -98,6 +98,8 @@
                 <!-- TODO: Add more projects as needed -->
             </section>   
 
+            <!-- <div class="solid-block"></div> -->
+
             <section id="contact" class="contact-section">
                 <div id="contact-window" class="contact-window">
                     <div class="contact-header" onclick="toggleContactWindow()">
@@ -165,7 +167,7 @@
                 </button>
             </div>
             <div class="video-container">
-                <video controls>
+                <video controls poster="../images/shelter/video-poster.jpg">
                     <source src="../images/shelter/demo-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -192,97 +194,6 @@
         </div>
     </div>
 </div>
-
-<style>
-
-.window-content {
-    display: flex;
-    flex-direction: row;
-}
-
-.project-description {
-    padding: 20px;
-    width: 50%; /* Set the width to 100% of the container */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.media-section {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    padding: 20px;
-    border: 2px solid rgba(250, 214, 214);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* background-color: rgba(25, 32, 55); */
-}
-
-.video-container {
-    flex: 1;
-    align-self: flex-end;
-}
-
-video {
-    border-radius: 20px;
-    width: auto; /* Set the width to 100% of the container */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 500px; /* Set a maximum height if needed */
-}
-
-.screenshot-container {
-    padding-bottom: 2px;
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.screenshot-slider {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-}
-
-.screenshot {
-    border-radius: 12px;
-    width: 100%; /* Set the width to 100% of the container */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.arrow {
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: transparent;
-    width: 40px; /* Fixed width */
-    height: 40px; /* Fixed height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-.arrow:hover {
-    background-color: rgba(25, 32, 55, 0.5);
-    border-radius: 12px;
-}
-
-.left-arrow {
-    left: 0;
-}
-
-.right-arrow {
-    right: 0px;
-}
-</style>
 
 <script>
 let currentSlides = {
@@ -341,7 +252,7 @@ function changeSlide(sliderType, direction) {
                             <img src="../images/website/website4.png" alt="Website Screenshot 4" class="screenshot">
                         </div>
                         <div class="slide" style="display: none;">
-                            <video controls>
+                            <video controls poster="images/website/video-poster.png">
                                 <source src="../images/website/website-demo.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
@@ -358,72 +269,6 @@ function changeSlide(sliderType, direction) {
         </div>
     </div>
 </div>
-
-<style>
-
-.website-window-content {
-    display: flex;
-    flex-direction: row;
-}
-
-#project2 .project-description {
-    padding: 20px;
-    width: 30%; /* Set the width to 100% of the container */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.website-media-section {
-    width: 80%;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    border: 2px solid rgba(250, 214, 214);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* background-color: rgba(25, 32, 55); */
-}
-
-#project2 video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.slide {
-    border-radius: 12px;
-    width: 100%;
-    height: auto;
-    display: none;
-}
-
-#project2 .slide video,
-.slide img {
-    border-radius: 12px;
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.website-screenshot-container {
-    align-self: flex-end;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    border-radius: 12px;
-}
-
-.screenshot-slider {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    position: relative;
-}
-
-</style>
 
 <script>
     let currentWebSlides = {

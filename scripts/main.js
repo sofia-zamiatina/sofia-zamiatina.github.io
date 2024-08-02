@@ -24,6 +24,9 @@ function openProject(projectId, projectElement) {
         projectWindow.style.left = `0px`; // Align it to the left of the viewport
         // projectWindow.style.width = `100%`; // Full width of the viewport
 
+        const newMarginBottom = projectWindowHeight + 40; // Calculate needed margin-bottom
+        document.body.style.marginBottom = `${newMarginBottom}px`;
+
     } else {
 
         const maxX = windowWidth - projectWindowWidth - 1200;
@@ -162,19 +165,25 @@ skills.forEach(skill => {
 
 
 function toggleSkillDescription(skill) {
-    const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill';
-    const descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
+    const windowWidth = window.innerWidth;
 
-    if (descriptionWindow.style.display === 'block') {
-        descriptionWindow.style.display = 'none';
+    if (windowWidth <= 768) {
+        showSkillDescription(skill);
     } else {
-        descriptionWindow.style.display = 'block';
-        // Hide other descriptions when one is shown
-        document.addEventListener('touchstart', function(event) {
-            if (!skill.contains(event.target)) {
-                descriptionWindow.style.display = 'none';
-            }
-        }, { once: true });
+        const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill';
+        const descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
+
+        if (descriptionWindow.style.display === 'block') {
+            descriptionWindow.style.display = 'none';
+        } else {
+            descriptionWindow.style.display = 'block';
+            // Hide other descriptions when one is shown
+            document.addEventListener('touchstart', function(event) {
+                if (!skill.contains(event.target)) {
+                    descriptionWindow.style.display = 'none';
+                }
+            }, { once: true });
+        }
     }
 }
 
@@ -194,29 +203,39 @@ document.querySelectorAll('.skill').forEach(skill => {
 });
 
 function showSkillDescription(skill) {
-    
-    const description = skill.getAttribute('data-description'); 
-    const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill'; 
-    let descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
-
-    if (!descriptionWindow) {
-        descriptionWindow = document.createElement('div');
-        descriptionWindow.classList.add('skill-description-window');
-        skill.appendChild(descriptionWindow);
-    }
-
-    descriptionWindow.textContent = description;
+    const description = skill.getAttribute('data-description');
+    const skillType = skill.classList.contains('soft-skill') ? 'soft-skill' : 'hard-skill';
     const windowWidth = window.innerWidth;
 
     if (windowWidth <= 768) {
-        skill.addEventListener('touchstart', function(event) {
-            event.stopPropagation();
-            toggleSkillDescription(skill);
-        });
+        let descriptionWindow = document.querySelector('.mobile-skill-description');
+
+        if (!descriptionWindow) {
+            descriptionWindow = document.createElement('div');
+            descriptionWindow.classList.add('mobile-skill-description');
+            document.body.appendChild(descriptionWindow);
+        }
+
+        descriptionWindow.textContent = description;
+        descriptionWindow.style.display = 'block';
+
+        document.addEventListener('touchstart', function(event) {
+            if (!skill.contains(event.target) && !descriptionWindow.contains(event.target)) {
+                descriptionWindow.style.display = 'none';
+            }
+        }, { once: true });
     } else {
+        let descriptionWindow = skill.querySelector(`.${skillType}-description-window`);
+
+        if (!descriptionWindow) {
+            descriptionWindow = document.createElement('div');
+            descriptionWindow.classList.add('skill-description-window');
+            skill.appendChild(descriptionWindow);
+        }
+
+        descriptionWindow.textContent = description;
         descriptionWindow.style.display = 'block';
     }
-
 }
 
 function hideSkillDescription(skill) {

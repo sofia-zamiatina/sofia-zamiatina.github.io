@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    background-color: #FAD6D6; /* Peach rose color */
+    background-color: rgb(25, 32, 55); /* Peach rose color */
     background-image: url('../images/background.png'); /* Background image */
     background-size: cover; /* Cover the entire viewport */
     background-position: center; /* Center the background image */
@@ -52,6 +52,7 @@ main.content {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    padding-bottom: 200px;
     gap: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for content */
 }
@@ -256,6 +257,16 @@ main.content {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     box-sizing: border-box;
+    opacity: 0; /* Start with opacity 0 for fade-in effect */
+    transform: scale(0.8); /* Start with smaller scale for zoom-in effect */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition properties */
+}
+
+/* Visible state with animation */
+.project-detail-window.show {
+    display: block;
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to normal size */
 }
 
 .project-detail-window .window-header {
@@ -294,6 +305,159 @@ main.content {
     outline: none; /* Ensure no focus outline */
 }
 
+/* Project 1 */
+.window-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.project-description {
+    padding: 20px;
+    width: 50%; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.media-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid rgba(250, 214, 214);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(25, 32, 55); */
+}
+
+.video-container {
+    flex: 1;
+    align-self: flex-end;
+}
+
+video {
+    border-radius: 20px;
+    width: auto; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 500px; /* Set a maximum height if needed */
+}
+
+.screenshot-container {
+    padding-bottom: 2px;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.screenshot-slider {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.screenshot {
+    border-radius: 12px;
+    width: 100%; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.arrow {
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: transparent;
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.arrow:hover {
+    background-color: rgba(25, 32, 55, 0.5);
+    border-radius: 12px;
+}
+
+.left-arrow {
+    left: 0;
+}
+
+.right-arrow {
+    right: 0px;
+}
+
+/* Project 2 */
+
+.website-window-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#project2 .project-description {
+    padding: 20px;
+    width: 30%; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.website-media-section {
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 20px;
+    border: 2px solid rgba(250, 214, 214);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(25, 32, 55); */
+}
+
+#project2 video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slide {
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+#project2 .slide video,
+.slide img {
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.website-screenshot-container {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 12px;
+}
+
+.screenshot-slider {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
 .contact-section {
     position: fixed;
     bottom: 0;
@@ -327,7 +491,6 @@ main.content {
     padding: 10px;
     text-align: center;
     cursor: pointer;
-    border-bottom: 1px solid rgba(25, 32, 55);
     font-size: 16px;
     border-radius: 12px; /* Rounded corners on top */
 }
@@ -387,15 +550,21 @@ footer {
     padding: 10px;
     background-color: rgb(25, 32, 55);
     color: white;
+    bottom: 0;
 }
 
 @media (max-width: 768px) {
     main.content {
         width: 100%;
+        height: auto;
         margin: 0;
         padding: 0;
     }
 
+    main.content {
+        height: 2000px;
+    }
+    
     header {
         display: block;
         position: fixed;
@@ -404,9 +573,12 @@ footer {
         padding: 10px;
         text-align: center;
         width: 100%;
+        z-index: 10;
     }
 
     .bio-skills {
+        display: flex;
+        flex-direction: column;
         padding-top: 60px;
         padding-bottom: 400px;
         flex-direction: column;
@@ -419,57 +591,87 @@ footer {
         padding: 20px;
     }
 
-    .skills-container {
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
+    .avatar-container {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .about-top {
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
     }
 
     .soft-skills, .hard-skills {
         position: absolute;
+        flex-direction: row;
+        align-items: center;
         justify-content: center; /* Center align the icons */
-        margin-top: 800px;
-        width: 90%; /* Ensure full width on mobile */
-        height: 200px;
-        color: white;
-        gap: 20px; /* Space between skill items */
-        flex: 1;
         /* background-color: rgba(25, 32, 55, 0.8); */
-        background-color: rgba(250, 214, 214, 0.8);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         border-radius: 12px;
-        color: white;
+        background-color: transparent;
+        box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
+        z-index: 0;
     }
 
     .skill-icons {
-        flex-direction: column;
+        flex-direction: row;
+        border-radius: 12px;
+        background-color: rgba(250, 214, 214, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     .soft-skills {
-        margin-right: 100px;
+        margin-top: 800px;
+        margin-left: 0px;
     }
 
     .hard-skills {
-        margin-left: 100px;
+        margin-top: 950px;
+        margin-right: 0px;
+    }
+
+    .hard-skills .skill-icons {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .soft-skill-description-window, 
     .hard-skill-description-window {
         display: none; /* Hide the tooltip by default */
-        position: absolute;
-        top: -25%;
-        width: 140px; /* Set a fixed width for the tooltip */
-        padding: 10px; /* Padding inside the tooltip */
-        border-radius: 8px; /* Rounded corners */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Full width for mobile */
+        padding: 10px;
+        border-radius: 8px 8px 0 0; /* Rounded corners at the top */
         background-color: rgba(25, 32, 55, 0.7); /* Semi-transparent black background */
         color: white; /* Text color inside the tooltip */
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Shadow for the tooltip */
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.3); /* Shadow for the tooltip */
         z-index: 10; /* Ensure tooltip appears on top */
         text-align: center; /* Center text inside tooltip */
         white-space: normal; /* Allow text to wrap */
         overflow: hidden; /* Hide overflowed text */
         text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-}
+    }
+
+    .mobile-skill-description {
+        display: none;
+        position: absolute;
+        top: 750px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        padding: 10px;
+        margin-top: 200px;
+        border-radius: 12px;
+        background-color: rgba(25, 32, 55, 0.7);
+        color: white;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+        z-index: 10;
+        text-align: center;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     .soft-skill-description-window {
         right: 58px;
@@ -480,20 +682,32 @@ footer {
     }
 
     .projects {
-        margin-bottom: 400px;
+        margin-bottom: 0px;
     }
 
     .project-detail-window {
+        left: 50%;
         display: none;
         position: absolute;
-        width: auto;
+        max-width: 100%;
         height: auto;
         /* background-color: rgba(25, 32, 55, 0.7); */
         background-color: #FAD6D6;
         z-index: 1000;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         border-radius: 12px;
-    }
+        margin-bottom: 200px;
+        opacity: 0; /* Start with opacity 0 for fade-in effect */
+        transform: scale(0.8); /* Start with smaller scale for zoom-in effect */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Transition properties */
+}
+
+/* Visible state with animation */
+.project-detail-window.show {
+    display: block;
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Zoom to normal size */
+}
     
     .project-detail-window .window-header {
         background-color: rgba(25, 32, 55);
@@ -508,6 +722,7 @@ footer {
     }
     
     .project-detail-window .window-content {
+        flex-direction: column;
         background-color: #FAD6D6;
         padding: 20px;
         text-align: left;
@@ -523,15 +738,68 @@ footer {
         outline: none; /* Remove default outline */
     }
 
+    .project-description {
+        padding: 20px;
+        width: 90%; /* Set the width to 100% of the container */
+    }
+
+    .media-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .screenshot-slider {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-container {
+        width: 100%;
+    }
+
+    video {
+        border-radius: 12px;
+        width: 100%; /* Set the width to 100% of the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .solid-block {
+        margin-top: 50px;
+        height: 3000px;
+        width: 100%;
+        background-color: rgba(25, 32, 55);
+        z-index: -1;
+    }
+
+    .website-window-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #project2 .project-description {
+        padding: 20px;
+        width: 90%; /* Set the width to 100% of the container */
+        height: auto; /* Maintain aspect ratio */
+    }
+
     .contact-section {
         bottom: 0;
         right: 0;
-        margin: 10px;
     }
 
     .contact-window {
         width: 100%;
-        max-width: 100%;
+        padding: 0;
+    }
+
+    .contact-header {
+        background-color: rgba(25, 32, 55, 0.5);
+        z-index: 2000;
     }
 
     .project-list {
