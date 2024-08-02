@@ -246,7 +246,7 @@ video {
     font-size: 20px;
     cursor: pointer;
     position: absolute;
-    top: 60%;
+    top: 50%;
     transform: translateY(-50%);
     z-index: 10;
     background-color: transparent;
@@ -290,22 +290,143 @@ function changeSlide(sliderType, direction) {
 </script>
 
 
-    <div id="project2" class="project-detail-window">
-        <div class="window-header">
-            <span> Project 2 </span>
-            <span class="window-controls">
-                <button onclick="closeProject('project2')">X</button>
-            </span>
-        </div>
-        <div class="window-content">
-            <h2>Project 2</h2>
-            <p>Description: This is a detailed description of Project 2.</p>
-            <p>Technologies: HTML, CSS, React</p>
+<div id="project2" class="project-detail-window">
+    <div class="window-header">
+        <span> Project 2 </span>
+        <span class="window-controls">
+            <button onclick="closeProject('project2')">X</button>
+        </span>
+    </div>
+    <div class="website-window-content">
+        <div class="project-description">
+            <h2>Social Media Website for Artists</h2>
+            <p>Technologies: HTML, CSS, TypeScript, React</p>
+            <p>Description: This project is a social media website tailored for people who work in art, such as artists, videographers, photographers, and more. The website has three main components: feed, profile, and messages. All functionalities are operational, and any posts are added to the database in real-time.</p>
+            <p>Role: I was responsible for the overall appearance as well as database management with user information. One of the challenges was to create a profile edit function so that users can change their info at any time.</p>
             <p><a href="https://github.com/yourusername/project2" target="_blank">GitHub Repository</a></p>
-            <p><a href="https://live-demo-link.com" target="_blank">Live Demo</a></p>
-            <img src="path/to/screenshot2.jpg" alt="Project 2 Screenshot">
         </div>
-    </div>    
+        <div class="website-media-section">
+            <div class="website-screenshot-container">
+                <button class="arrow left-arrow" onclick="changeWebSlide('website', -1)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="website-screenshot-container">
+                    <button class="arrow left-arrow" onclick="changeWebSlide('website', -1)">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="screenshot-slider website-slider">
+                        <div class="slide" style="display: block;">
+                            <img src="../images/website/website1.png" alt="Website Screenshot 1" class="screenshot">
+                        </div>
+                        <div class="slide" style="display: none;">
+                            <img src="../images/website/website2.png" alt="Website Screenshot 2" class="screenshot">
+                        </div>
+                        <div class="slide" style="display: none;">
+                            <img src="../images/website/website3.png" alt="Website Screenshot 3" class="screenshot">
+                        </div>
+                        <div class="slide" style="display: none;">
+                            <img src="../images/website/website4.png" alt="Website Screenshot 4" class="screenshot">
+                        </div>
+                        <div class="slide" style="display: none;">
+                            <video controls>
+                                <source src="../images/website/website-demo.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <button class="arrow right-arrow" onclick="changeWebSlide('website', 1)">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>                
+                <button class="arrow right-arrow" onclick="changeWebSlide('website', 1)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>            
+        </div>
+    </div>
+</div>
+
+<style>
+
+.website-window-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#project2 .project-description {
+    padding: 20px;
+    width: 30%; /* Set the width to 100% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.website-media-section {
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid rgba(250, 214, 214);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(25, 32, 55); */
+}
+
+#project2 video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.slide {
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+#project2 .slide video,
+.slide img {
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.website-screenshot-container {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 12px;
+}
+
+.screenshot-slider {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+</style>
+
+<script>
+    let currentWebSlides = {
+    website: 0
+};
+
+function changeWebSlide(sliderType, direction) {
+    const slides = document.querySelectorAll(`#project2 .${sliderType}-slider .slide`);
+    const totalSlides = slides.length;
+    slides[currentWebSlides[sliderType]].style.display = 'none';
+    currentWebSlides[sliderType] = (currentWebSlides[sliderType] + direction + totalSlides) % totalSlides;
+    slides[currentWebSlides[sliderType]].style.display = 'block';
+}
+
+    
+</script>
 
     <script src="scripts/main.js"></script>
     <script>

@@ -180,8 +180,6 @@ main.content {
     left: 75px;
 }
 
-
-
 .projects {
     display: flex;
     flex-wrap: wrap;
@@ -217,7 +215,7 @@ main.content {
 .project-detail-window {
     display: none;
     position: fixed;
-    max-width: 1200px;
+    max-width: 1300px;
     max-height: 1000px;
     /* background-color: rgba(25, 32, 55, 0.7); */
     background-color: #FAD6D6;
