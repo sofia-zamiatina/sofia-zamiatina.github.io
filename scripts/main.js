@@ -231,6 +231,8 @@ function hideSkillDescription(skill) {
 
 function toggleContactWindow() {
     const contactWindow = document.getElementById('contact-window');
-    contactWindow.classList.toggle('show');
+    setTimeout(() => {
+        contactWindow.classList.toggle('show');
+    }, 10); // Delay slightly to allow render
 }
 

@@ -60,35 +60,9 @@ main.content {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
     gap: 20px;
     width: 100%;
     max-width: 1200px;
-}
-
-.skills-container {
-    align-items: center;
-    height: 100%;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex: 2;
-    gap: 20px;
-}
-
-.bio {
-    flex: 1;
-    max-width: 800px;
-    height: 100%;
-    padding: 20px;
-    padding-bottom: 0;
-    background-color: rgba(250, 214, 214); /* Slightly more opaque background */
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    box-sizing: border-box;
 }
 
 .bio .avatar {
@@ -104,335 +78,41 @@ main.content {
 }
 
 .avatar-container {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.skill-icons {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align the skill icons horizontally */
-}
-
-.skill i, /* FontAwesome Icons */
-.skill img { /* Image icons */
-    color: rgba(25, 32, 55); /* Set color of FontAwesome icons */
-    fill: rgba(25, 32, 55); /* Set color of image icons (if SVG) */
-    font-size: 24px; /* Adjust the size if necessary */
-    margin: 10px 0; /* Add margin for spacing */
-}
-
-.soft-skills, .hard-skills {
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    align-items: center; /* Center items horizontally */
-    max-width: 2.5%;
-    max-height: 100%;
-    color: white;
-    gap: 20px; /* Space between skill items */
-    flex: 1;
-    /* background-color: rgba(25, 32, 55, 0.8); */
-    background-color: rgba(250, 214, 214, 0.8);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    padding: 20px;
-    color: white;
-}
-
-.soft-skills {
-    margin-left: 10px;
-}
-
-.hard-skills {
-    margin-right: 10px;
-}
-
-.skill, .soft-skill {
-    position: relative; /* Make the tooltip position relative to the skill */
-    padding: 10px;
-}
-
-.soft-skill-description-window, 
-.hard-skill-description-window {
-    display: none; /* Hide the tooltip by default */
-    position: absolute;
-    top: -25%;
-    width: 200px; /* Set a fixed width for the tooltip */
-    padding: 10px; /* Padding inside the tooltip */
-    border-radius: 8px; /* Rounded corners */
-    background-color: rgba(25, 32, 55, 0.7); /* Semi-transparent black background */
-    color: white; /* Text color inside the tooltip */
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* Shadow for the tooltip */
-    z-index: 10; /* Ensure tooltip appears on top */
-    text-align: center; /* Center text inside tooltip */
-    white-space: normal; /* Allow text to wrap */
-    overflow: hidden; /* Hide overflowed text */
-    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
-}
-
-.soft-skill-description-window {
-    right: 75px;
-}
-
-.hard-skill-description-window {
-    left: 75px;
-}
-
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    max-width: 1200px;
-}
-
-.project {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    padding: 10px;
-    text-align: center;
-    /* background-color: rgba(255, 255, 255, 0.8); Background for project items */
-}
-
-.project i {
-    font-size: 48px; /* Size of the folder icon */
-    color: #FAD6D6; /* Color of the icon */
-    text-shadow: 4px 4px 6px rgba(0,0,0,0.5);
-}
-
-.project-name {
-    margin-top: 5px; /* Space between icon and project name */
-    font-size: 16px; /* Font size of the project name */
-    color: #FAD6D6;
-    text-shadow: 2px 2px 4px rgba(0,0,0); /* Add shadow to make text more readable */
-    font-weight: bold; 
-}
-
-.project-detail-window {
-    display: none;
-    position: fixed;
-    max-width: 1300px;
-    max-height: 1000px;
-    /* background-color: rgba(25, 32, 55, 0.7); */
-    background-color: #FAD6D6;
-    z-index: 1000;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border-radius: 12px;
-    opacity: 0; /* Start with opacity 0 for fade-in effect */
-    transform: scale(0.8); /* Start with smaller scale for zoom-in effect */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition properties */
-}
-
-/* Visible state with animation */
-.project-detail-window.show {
-    display: block;
-    opacity: 1; /* Fade in */
-    transform: scale(1); /* Zoom to normal size */
-}
-
-.project-detail-window .window-header {
-    background-color: rgba(25, 32, 55);
-    cursor: move;
-    color: #FAD6D6;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-.project-detail-window .window-content {
-    background-color: #FAD6D6;
-    padding: 20px;
-    text-align: left;
-    border-radius: 12px;
-}
-
-.project-detail-window .window-controls button {
-    background-color: transparent; /* Transparent background */
-    border: none; /* No borders */
-    color: #FAD6D6; /* Specific color */
-    font-size: 16px; /* Adjust size as needed */
-    cursor: pointer;
-    outline: none; /* Remove default outline */
-}
-
-.project-detail-window .window-controls button:hover {
-    color: #ffcccc; /* Optional: Change color on hover */
-}
-
-.project-detail-window .window-controls button:focus {
-    outline: none; /* Ensure no focus outline */
-}
-
-.contact-section {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.contact-window {
-    position: absolute;
-    bottom: -100%; /* Start off-screen */
-    margin-bottom: 5%;
-    width: 100%;
-    max-width: 400px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(25, 32, 55, 0.7);
-    border: 2px solid rgba(25, 32, 55);
-    border-radius: 12px 12px 0 0; /* Rounded corners on top */
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: bottom 0.3s ease; /* Smooth slide animation */
-}
-
-.contact-window.show {
-    bottom: 0; /* Slide up into view */
-}
-
-.contact-header {
-    background-color: rgba(25, 32, 55);
-    color: white;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(25, 32, 55);
-    font-size: 16px;
-    margin-bottom: 10px;
-    border-radius: 8px 8px 0 0; /* Rounded corners on top */
-}
-
-.contact-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.contact-content {
-    display: none; /* Hide content initially */
-    padding: 20px;
-    text-align: left;
-}
-
-.contact-window.show .contact-content {
-    display: block; /* Show content when window is visible */
-}
-
-.contact-section form {
-    color: white;
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-section label {
-    margin-bottom: 5px;
-}
-
-.contact-section input[type="text"],
-.contact-section input[type="email"],
-.contact-section textarea {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.contact-section input[type="submit"] {
-    padding: 10px;
-    border: none;
-    background-color: rgba(25, 32, 55);
-    color: white;
-    cursor: pointer;
-}
-
-.contact-section input[type="submit"]:hover {
-    background-color: #333;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(25, 32, 55);
-    color: white;
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #FAD6D6; /* Peach rose color */
-    background-image: url('../images/background.png'); /* Background image */
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the background image */
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    display: none;
-    background-color: rgb(25, 32, 55);
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-main.content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for content */
-}
-
-.bio-skills {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
+    padding-top: 10px;
+}
+
+.bio-text {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.about-top {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for content */
+    align-self: center;
     width: 100%;
-    max-width: 1200px;
+    border-radius: 12px;
+}
+
+.pixel-divider {
+    width: 50%;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        black,
+        black 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    margin: 20px auto;
+}
+
+#project1 .pixel-divider,
+#project2 .pixel-divider {
+    width: 100%;
 }
 
 .skills-container {
@@ -447,16 +127,17 @@ main.content {
 
 .bio {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     max-width: 800px;
     height: auto;
     padding: 20px;
     background-color: rgba(250, 214, 214); /* Slightly more opaque background */
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    justify-content: center;
-    text-align: center;
-    align-items: center;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .skill-icons {
@@ -630,10 +311,8 @@ main.content {
     transform: translateX(-50%);
     background-color: rgba(25, 32, 55, 0.7);
     border: 2px solid rgba(25, 32, 55);
-    border-radius: 12px 12px 0 0; /* Rounded corners on top */
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    border-radius: 12px; /* Rounded corners on top */
+    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transition: bottom 0.3s ease; /* Smooth slide animation */
 }
@@ -650,8 +329,7 @@ main.content {
     cursor: pointer;
     border-bottom: 1px solid rgba(25, 32, 55);
     font-size: 16px;
-    margin-bottom: 10px;
-    border-radius: 8px 8px 0 0; /* Rounded corners on top */
+    border-radius: 12px; /* Rounded corners on top */
 }
 
 .contact-button {
@@ -692,6 +370,7 @@ main.content {
 }
 
 .contact-section input[type="submit"] {
+    border-radius: 12px;
     padding: 10px;
     border: none;
     background-color: rgba(25, 32, 55);

@@ -48,14 +48,20 @@
                     </section>                    
                     
                     <section id="about" class="bio">
-                        <h2>ABOUT ME</h2>
-                                <p>My name is Sofia Zamiatina and I write code!</p>
-                                <div class="avatar-container">
-                                    <img src="../images/avatar.PNG" alt="Sofia Zamiatina" class="avatar">
-                        <p>I graduated from Mount Holyoke College in 2024 with high praise with a Bachelor's degree in Computer Science. Currently, I am exploring opportunities for remote work and freelancing.</p>
-                        <p>Previously, I have worked as a Teaching Assistant for a computer science class, where I honed my skills in guiding and assisting students.</p>
-                        <p>In addition to my professional interests, I have a background in both traditional and digital art and have been an avid gamer since childhood.</p>
-                    </div>
+                        <div class="about-top">
+                            <h2>ABOUT ME</h2>
+                            <p>My name is Sofia Zamiatina and I write code!</p>
+                        </div>
+                            <div class="avatar-container">
+                                <img src="../images/avatar.PNG" alt="Sofia Zamiatina" class="avatar">
+                                <div class="bio-text">
+                                    <p>Education: Mount Holyoke College, 2024</p>
+                                    <div class="pixel-divider"></div>
+                                    <p>Previously, I have worked as a Teaching Assistant for a computer science class, where I honed my skills in guiding and assisting students.</p>
+                                    <div class="pixel-divider"></div>
+                                    <p>In addition to my professional interests, I have a background in both traditional and digital art and have been an avid gamer since childhood.</p>
+                                </div>
+                            </div>                            
                     </section>
 
                     <section id="hard-skills" class="hard-skills">
@@ -83,14 +89,15 @@
             <section id="projects" class="projects">
                 <div class="project" onclick="openProject('project1', this)">
                     <i class="fas fa-folder" id="icon-project1"></i>
-                    <div class="project-name">Project 1</div>
+                    <div class="project-name">Shelter</div>
                 </div>
                 <div class="project" onclick="openProject('project2', this)">
                     <i class="fas fa-folder" id="icon-project2"></i>
-                    <div class="project-name">Project 2</div>
+                    <div class="project-name">Website</div>
                 </div>
                 <!-- TODO: Add more projects as needed -->
-            </section>                
+            </section>   
+
             <section id="contact" class="contact-section">
                 <div id="contact-window" class="contact-window">
                     <div class="contact-header" onclick="toggleContactWindow()">
@@ -127,8 +134,10 @@
     <div class="window-content">
         <div class="project-description">
             <h2>Mobile Game Shelter</h2>
-            <p>Description: "Shelter" is a mobile game where players decide which characters will go to a shelter in an apocalyptic scenario based on their characteristics such as health, profession, and quirks.</p>
             <p>Technologies: Java, React</p>
+            <div class="pixel-divider"></div>
+            <p>Description: "Shelter" is a mobile game where players decide which characters will go to a shelter in an apocalyptic scenario based on their characteristics such as health, profession, and quirks.</p>
+            <div class="pixel-divider"></div>
             <p>Role: I was responsible for the back end, where the entire catalog of possible characters is generated. The most challenging part was developing an algorithm that assigns all characteristics to characters, which players can access through a generated code. Given that it's an offline game, we needed an archive for all possible numbers of players.</p>
             <p><a href="https://github.com/yourusername/shelter" target="_blank">GitHub Repository</a></p>
         </div>
@@ -303,7 +312,9 @@ function changeSlide(sliderType, direction) {
         <div class="project-description">
             <h2>Social Media Website for Artists</h2>
             <p>Technologies: HTML, CSS, TypeScript, React</p>
+            <div class="pixel-divider"></div>
             <p>Description: This project is a social media website tailored for people who work in art, such as artists, videographers, photographers, and more. The website has three main components: feed, profile, and messages. All functionalities are operational, and any posts are added to the database in real-time.</p>
+            <div class="pixel-divider"></div>
             <p>Role: I was responsible for the overall appearance as well as database management with user information. One of the challenges was to create a profile edit function so that users can change their info at any time.</p>
             <p><a href="https://github.com/yourusername/project2" target="_blank">GitHub Repository</a></p>
         </div>
@@ -431,11 +442,6 @@ function changeWebSlide(sliderType, direction) {
 </script>
 
     <script src="scripts/main.js"></script>
-    <script>
-        function toggleContactWindow() {
-            const contactWindow = document.querySelector('.contact-window');
-            contactWindow.classList.toggle('show');
-        }
-    </script>
+
 </body>
 </html>
