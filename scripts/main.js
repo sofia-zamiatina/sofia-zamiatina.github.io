@@ -1,3 +1,5 @@
+let highestZIndex = 1000;
+
 function openProject(projectId, projectElement) {
     const projectWindow = document.getElementById(projectId);
     const icon = projectElement.querySelector('i');
@@ -5,6 +7,9 @@ function openProject(projectId, projectElement) {
     // Change the icon to open folder
     icon.classList.remove('fa-folder');
     icon.classList.add('fa-folder-open');
+
+    // Increase the z-index to bring the window to the front
+    projectWindow.style.zIndex = ++highestZIndex;
 
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
@@ -74,6 +79,9 @@ function dragElement(element) {
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
         document.onmousemove = elementDrag;
+
+        // Bring the dragged element to the top
+        element.style.zIndex = ++highestZIndex;
     }
 
     function dragTouchStart(e) {
@@ -85,6 +93,9 @@ function dragElement(element) {
         pos4 = touch.clientY;
         document.ontouchend = closeDragElement;
         document.ontouchmove = elementDragTouch;
+
+        // Bring the dragged element to the top
+        element.style.zIndex = ++highestZIndex;
     }
 
     function elementDrag(e) {
