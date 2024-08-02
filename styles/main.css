@@ -122,7 +122,6 @@ main.content {
     display: flex;
     flex-direction: row;
     flex: 2;
-    gap: 20px;
 }
 
 .bio {
@@ -144,6 +143,7 @@ main.content {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center align the skill icons horizontally */
+    gap: 20px;
 }
 
 .skill i, /* FontAwesome Icons */
