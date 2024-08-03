@@ -574,8 +574,9 @@ footer {
         padding: 0;
     }
 
-    main.content {
-        height: 2000px;
+    html, body {
+        background-color: rgb(25, 69, 101);
+        background-image: none; /* Background image */
     }
     
     header {
@@ -601,6 +602,7 @@ footer {
     .bio {
         width: 100%;
         max-width: none;
+        border-radius: 0;
     }
 
     .avatar-container {
@@ -618,7 +620,6 @@ footer {
         align-items: center;
         justify-content: center; /* Center align the icons */
         /* background-color: rgba(25, 32, 55, 0.8); */
-        border-radius: 12px;
         background-color: transparent;
         box-shadow: 0 0 0px rgba(0, 0, 0, 0.3);
         z-index: 0;
@@ -627,27 +628,31 @@ footer {
     .skill-icons {
         flex-direction: row;
         /* border-radius: 12px; */
-        background-color: rgba(250, 214, 214, 0.8);
+        background-color: rgba(250, 214, 214);
+        padding: 55px;
+        padding-bottom: 0;
+        padding-top: 0;
     }
 
     .soft-skills {
-        margin-top: 800px;
+        margin-top: 750px;
         margin-left: 0px;
     }
 
     .hard-skills {
-        margin-top: 980px;
+        margin-top: 890px;
         margin-right: 0px;
     }
 
     .soft-skills .skill-icons {
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
 
     .hard-skills .skill-icons {
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.3);
     }
 
     .soft-skill-description-window, 
@@ -661,7 +666,6 @@ footer {
         border-radius: 8px 8px 0 0; /* Rounded corners at the top */
         background-color: rgba(25, 32, 55, 0.7); /* Semi-transparent black background */
         color: white; /* Text color inside the tooltip */
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.3); /* Shadow for the tooltip */
         z-index: 10; /* Ensure tooltip appears on top */
         text-align: center; /* Center text inside tooltip */
         white-space: normal; /* Allow text to wrap */
@@ -672,16 +676,14 @@ footer {
     .mobile-skill-description {
         display: none;
         position: absolute;
-        top: 725px;
+        top: 650px;
         left: 50%;
         transform: translateX(-50%);
-        width: 70%;
-        padding: 10px;
+        width: 90%;
+        padding: 20px;
         margin-top: 200px;
-        border-radius: 12px;
-        background-color: rgba(25, 32, 55, 0.7);
-        color: white;
-        box-shadow: 0 -5px 15px rgba(0,0,0,0.3);
+        background-color: rgba(250, 214, 214, 0.9);
+        color: black;
         z-index: 10;
         text-align: center;
         white-space: normal;
