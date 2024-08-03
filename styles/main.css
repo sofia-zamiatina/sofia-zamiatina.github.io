@@ -672,7 +672,7 @@ footer {
     .mobile-skill-description {
         display: none;
         position: absolute;
-        top: 750px;
+        top: 725px;
         left: 50%;
         transform: translateX(-50%);
         width: 70%;
