@@ -144,7 +144,6 @@ main.content {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center align the skill icons horizontally */
-    gap: 20px;
 }
 
 .skill i, /* FontAwesome Icons */
@@ -153,6 +152,20 @@ main.content {
     fill: rgba(25, 32, 55); /* Set color of image icons (if SVG) */
     font-size: 24px; /* Adjust the size if necessary */
     margin: 10px 0; /* Add margin for spacing */
+    width: 50px; /* Fixed width for consistency */
+    height: 50px; /* Fixed height for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Ensure padding and border are included in the total size */
+}
+
+.skill:hover i, /* FontAwesome Icons on hover */
+.skill:hover img { /* Image icons on hover */
+    border: 3px solid rgba(25, 32, 55, 0.8); /* Add border on hover */
+    border-radius: 50%; /* Optional: add rounded corners */
+    padding: 5px; /* Add padding to create space for the border */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 .soft-skills, .hard-skills {
@@ -579,7 +592,7 @@ footer {
     .bio-skills {
         display: flex;
         flex-direction: column;
-        padding-top: 60px;
+        padding-top: 30px;
         padding-bottom: 400px;
         flex-direction: column;
         align-items: center;
@@ -588,7 +601,6 @@ footer {
     .bio {
         width: 100%;
         max-width: none;
-        padding: 20px;
     }
 
     .avatar-container {
@@ -614,9 +626,8 @@ footer {
 
     .skill-icons {
         flex-direction: row;
-        border-radius: 12px;
+        /* border-radius: 12px; */
         background-color: rgba(250, 214, 214, 0.8);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     .soft-skills {
@@ -625,13 +636,18 @@ footer {
     }
 
     .hard-skills {
-        margin-top: 950px;
+        margin-top: 980px;
         margin-right: 0px;
     }
 
+    .soft-skills .skill-icons {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
     .hard-skills .skill-icons {
-        padding-left: 15px;
-        padding-right: 15px;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
     }
 
     .soft-skill-description-window, 
@@ -659,7 +675,7 @@ footer {
         top: 750px;
         left: 50%;
         transform: translateX(-50%);
-        width: 60%;
+        width: 70%;
         padding: 10px;
         margin-top: 200px;
         border-radius: 12px;
@@ -682,32 +698,23 @@ footer {
     }
 
     .projects {
-        margin-bottom: 0px;
+        margin-bottom: 40px;
     }
 
     .project-detail-window {
-        left: 50%;
-        display: none;
-        position: absolute;
+        position: fixed; /* Fix the window to the viewport */
+        top: 0;
+        left: 0;
+        width: 100vw;
         max-width: 100%;
-        height: auto;
-        /* background-color: rgba(25, 32, 55, 0.7); */
+        height: 100vh;
+        overflow-y: auto; /* Enable vertical scrolling */
         background-color: #FAD6D6;
         z-index: 1000;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        border-radius: 12px;
-        margin-bottom: 200px;
-        opacity: 0; /* Start with opacity 0 for fade-in effect */
-        transform: scale(0.8); /* Start with smaller scale for zoom-in effect */
-        transition: opacity 0.3s ease, transform 0.3s ease; /* Transition properties */
-}
-
-/* Visible state with animation */
-.project-detail-window.show {
-    display: block;
-    opacity: 1; /* Fade in */
-    transform: scale(1); /* Zoom to normal size */
-}
+        border-radius: 0px;
+        display: none; /* Hide by default */
+    }
     
     .project-detail-window .window-header {
         background-color: rgba(25, 32, 55);
@@ -717,8 +724,15 @@ footer {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    /* Visible state with animation */
+    .project-detail-window.show {
+        display: block;
+        opacity: 1; /* Fade in */
+        transform: scale(1); /* Zoom to normal size */
     }
     
     .project-detail-window .window-content {

@@ -4,10 +4,6 @@ function openProject(projectId, projectElement) {
     const projectWindow = document.getElementById(projectId);
     const icon = projectElement.querySelector('i');
 
-    // Change the icon to open folder
-    icon.classList.remove('fa-folder');
-    icon.classList.add('fa-folder-open');
-
     // Increase the z-index to bring the window to the front
     projectWindow.style.zIndex = ++highestZIndex;
 
@@ -17,17 +13,22 @@ function openProject(projectId, projectElement) {
     const projectWindowHeight = projectWindow.clientHeight;
 
     if (windowWidth <= 768) {
-        // Position the description window below and aligned to the left of the project folder on mobile
+        // Make the project window full-screen on mobile
         projectWindow.style.display = "block";
-        const rect = projectElement.getBoundingClientRect();
-        projectWindow.style.top = `${rect.bottom + window.scrollY}px`;
-        projectWindow.style.left = `0px`; // Align it to the left of the viewport
-        // projectWindow.style.width = `100%`; // Full width of the viewport
-
-        const newMarginBottom = projectWindowHeight + 40; // Calculate needed margin-bottom
-        document.body.style.marginBottom = `${newMarginBottom}px`;
+        projectWindow.style.position = "fixed";
+        projectWindow.style.top = "0";
+        projectWindow.style.left = "0";
+        projectWindow.style.width = "100vw";
+        projectWindow.style.height = "100vh";
+        projectWindow.style.maxWidth = "none";
+        projectWindow.style.maxHeight = "none";
+        projectWindow.style.borderRadius = "0";
+        projectWindow.style.zIndex = "1001"; // Ensure it is above everything else
 
     } else {
+        // Change the icon to open folder
+        icon.classList.remove('fa-folder');
+        icon.classList.add('fa-folder-open');
 
         const maxX = windowWidth - projectWindowWidth - 1200;
         const maxY = windowHeight - projectWindowHeight - 600;
@@ -45,6 +46,7 @@ function openProject(projectId, projectElement) {
     setTimeout(() => {
         projectWindow.classList.add('show'); // Add show class for animation
         projectWindow.style.visibility = "visible"; // Make it visible
+        document.body.style.overflow = 'hidden'; // Disable background scrolling
     }, 10); // Delay slightly to allow render
 }
 
@@ -61,6 +63,17 @@ function closeProject(projectId) {
 
     setTimeout(() => {
         projectWindow.style.display = 'none'; // Hide after animation completes
+        projectWindow.style.position = ""; // Reset position
+        projectWindow.style.top = ""; // Reset top position
+        projectWindow.style.left = ""; // Reset left position
+        projectWindow.style.width = ""; // Reset width
+        projectWindow.style.height = ""; // Reset height
+        projectWindow.style.maxWidth = ""; // Reset max-width
+        projectWindow.style.maxHeight = ""; // Reset max-height
+        projectWindow.style.borderRadius = ""; // Reset border radius
+        projectWindow.style.zIndex = ""; // Reset z-index
+        projectWindow.style.display = 'none'; // Hide after animation completes
+        document.body.style.overflow = 'auto'; // Re-enable background scrolling
     }, 300); // Match the timeout with the transition duration
 }
 
