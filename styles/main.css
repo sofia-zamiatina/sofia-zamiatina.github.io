@@ -716,6 +716,7 @@ footer {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         border-radius: 0px;
         display: none; /* Hide by default */
+        padding-bottom: 75px;
     }
     
     .project-detail-window .window-header {
