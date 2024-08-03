@@ -606,6 +606,10 @@ footer {
         border-radius: 0;
     }
 
+    .bio-text {
+        text-align: center;
+    }
+
     .avatar-container {
         flex-direction: column;
         padding-top: 20px;
